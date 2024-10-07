@@ -19,7 +19,6 @@ class TaskFactory extends Factory
         return [
             'name' => fake()->words(rand(1, 2), true),
             'content' => fake()->paragraph(),
-            //TODO Make status a couple of chosen before words
             'status' => function () {
                 $rand = rand(0, 5);
                 if ($rand == 0) {

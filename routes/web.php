@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', function () {
-    return view('filament.pages.index');
+    return view('index');
 })->name('/');
 
 

@@ -27,6 +27,7 @@ class ClientController extends Controller
      */
     public function show(Client $client)
     {
-        return view('clients.show', ['client' => $client]);
+        $image_count = $client->images->count();
+        return view('clients.show', ['client' => $client, 'image_count' => $image_count]);
     }
 }

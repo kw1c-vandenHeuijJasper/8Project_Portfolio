@@ -15,4 +15,7 @@ Route::get('/projects/{project}', [ProjectController::class, 'show'])->name('pro
 Route::get('/clients', [ClientController::class, 'index'])->name('clients');
 Route::get('/clients/{client}', [ClientController::class, 'show'])->name('clients.show');
 
-Route::get('/test', function () {});
+// Route::get('/test', function () {});
+
+// Used for slideshow testing
+Route::view('test', 'test');

@@ -27,6 +27,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        return view('projects.show', ['project' => $project]);
+        $image_count = $project->images->count();
+        return view('projects.show', ['project' => $project, 'image_count' => $image_count]);
     }
 }

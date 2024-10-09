@@ -28,7 +28,10 @@ class Project extends Model
 
     public function client(): BelongsTo
     {
-        return $this->belongsTo(Client::class);
+        return $this->belongsTo(Client::class)
+            ->withDefault([
+                'name' => 'Myself'
+            ]);
     }
 
     public function images(): MorphMany

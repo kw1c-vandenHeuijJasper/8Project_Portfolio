@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Client;
 use App\Models\Project;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,13 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        //
+        $projects = Project::get();
+        $clients = Client::get();
+
+        return view('/projects.index', [
+            'projects' => $projects,
+            'clients' => $clients
+        ]);
     }
 
     /**
@@ -20,6 +27,6 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        //
+        return view('projects.show', ['project' => $project]);
     }
 }

@@ -19,6 +19,11 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@test.test',
             'password' => 'test',
         ]);
+        \App\Models\User::factory(1)->create([
+            'name' => 'Jasper',
+            'email' => 'jasper@test.com',
+            'password' => 'Jasper',
+        ]);
         // Run factory with every project having a client
         \App\Models\Client::factory(5) // 5 clients
             ->has(

@@ -1,3 +1,4 @@
+<!-- TODO: REVAMP HOME PAGE -->
 <!--
     Available from controller:
     $projects

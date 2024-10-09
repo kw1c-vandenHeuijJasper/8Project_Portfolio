@@ -2,9 +2,10 @@
     <x-page-name name="Project {{ $project->id }}" />
     <section class="py-8 antialiased bg-white dark:bg-gray-900 md:py-16">
         <div class="flex">
-            <h2 class="mx-auto text-xl font-semibold text-gray-900 dark:text-white sm:text-4xl pb-[25px]">
-                {{ $project->name }}
-            </h2>
+            <h2 class="mx-auto text-center text-xl font-semibold text-gray-900 dark:text-white sm:text-4xl pb-[25px]">
+                {{ $project->name }} <br> <span class="font-normal">gemaakt voor</span> <br> <a
+                    href="{{ route('clients') . '/' . $project->client->id }}">{{ $project->client->name }}</a>
+            </h2 <h2 class="mx-auto text-xl font-semibold text-gray-900 dark:text-white sm:text-4xl pb-[25px]">
         </div>
         <div class="max-w-screen-xl px-4 mx-auto 2xl:px-0">
             @if (!$project->images->isEmpty())

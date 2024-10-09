@@ -4,13 +4,10 @@
     <section class="bg-white dark:bg-gray-900">
         <div class="max-w-screen-xl px-4 py-8 mx-auto lg:py-16 lg:px-6 ">
             <div class="max-w-screen-sm mx-auto mb-8 text-center lg:mb-16">
-                <h2 class="mb-4 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
-                    <!-- TODO Goede text hiervoor verzinnen --> Lorem ipsum dolor sit amet.
-                </h2>
                 <p class="font-light text-gray-500 lg:mb-16 sm:text-xl dark:text-gray-400">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et quisquam rerum soluta neque itaque
-                    impedit officiis cupiditate animi, odio, est alias assumenda doloribus facilis pariatur
-                    dolore ut sapiente numquam accusantium.
+                    <!--
+                        TODO Write a description
+                     -->
                 </p>
             </div>
             <div class="grid gap-8 mb-6 lg:mb-16 md:grid-cols-2">
@@ -20,7 +17,7 @@
                             @forelse ($client->images as $image)
                                 @if ($loop->first)
                                     <img class="max-w-[250px] max-h-[250px] rounded-lg sm:rounded-none sm:rounded-l-lg"
-                                        src="storage/{{ $image->path }}" alt="image here" />
+                                        src="{{ asset('storage/' . $image->path) }}" alt="image here" />
                                 @endif
                             @empty
                             @endforelse

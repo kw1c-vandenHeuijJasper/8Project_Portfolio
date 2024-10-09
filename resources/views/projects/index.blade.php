@@ -4,9 +4,9 @@
     <section class="bg-white dark:bg-gray-900">
         <div class="max-w-screen-xl px-4 py-8 mx-auto lg:py-16 lg:px-6 ">
             <div class="max-w-screen-sm mx-auto mb-8 text-center lg:mb-16">
-                <h2 class="mb-4 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+                {{-- <h2 class="mb-4 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
                     <!-- TODO Goede text hiervoor verzinnen --> Mijn Projecten
-                </h2>
+                </h2> --}}
                 <p class="font-light text-gray-500 lg:mb-16 sm:text-xl dark:text-gray-400">
                     Hier zie je alle projecten die ik gemaakt heb. <br>
                     Hier kun je ook zien of het voor mij is gemaakt of voor een opdrachtgever. <br>

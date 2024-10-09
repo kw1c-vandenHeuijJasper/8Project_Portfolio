@@ -60,10 +60,12 @@
                             class="pl-4 space-y-4 text-base font-normal text-gray-500 list-disc list-outside dark:text-gray-400">
                             @forelse ($client->project as $project)
                                 <li>
-                                    <span class="font-semibold text-gray-900 dark:text-white"> {{ $project->name }}
-                                    </span> --
-                                    <span class="text-gray-50"> {{ $project->content }}</span>
-                                    {{-- {{ $task->content }} --}}
+                                    <a href="{{ route('projects') . '/' . $project->id }}">
+                                        <span class="font-semibold text-gray-900 dark:text-white"> {{ $project->name }}
+                                        </span> --
+                                        <span class="text-gray-50"> {{ $project->content }}</span>
+                                        {{-- {{ $task->content }} --}}
+                                    </a>
                                 </li>
                             @empty
                                 No projects were found!

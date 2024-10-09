@@ -7,6 +7,7 @@
 </head>
 
 <body>
+    <x-nav />
     {{ $slot }}
 </body>
 

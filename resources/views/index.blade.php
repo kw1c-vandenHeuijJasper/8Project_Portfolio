@@ -5,7 +5,7 @@
 -->
 {{-- @dd($projects, $clients) --}}
 <x-app-layout>
-    <x-nav />
+
 
     <x-page-name name="Hoofdpagina" />
 

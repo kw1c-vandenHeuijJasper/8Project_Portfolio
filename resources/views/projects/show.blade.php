@@ -1,5 +1,5 @@
 <x-app-layout>
-    <x-nav />
+
 
     {{-- @dd($project->id) --}}
     <div class="border-y-2 border-slate-800 h-14 bg-slate-600">

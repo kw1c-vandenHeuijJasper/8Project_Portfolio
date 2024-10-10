@@ -37,8 +37,8 @@
                     </div>
 
 
-                    <!-- Dots for navigation -->
-                    @if ($dot_visible = true)
+                    <!-- Dot for navigation -->
+                    @if ($dot_visible == true)
                         <div class="flex justify-center mt-4">
                             <span class="w-4 h-4 bg-gray-400 rounded-full cursor-pointer dot"
                                 onclick="currentSlide(1)"></span>
@@ -63,13 +63,14 @@
                             class="pl-4 space-y-4 text-base font-normal text-gray-500 list-disc list-outside dark:text-gray-400">
                             @forelse ($project->task as $task)
                                 <li>
-                                    <span class="font-semibold text-gray-900 dark:text-white"> {{ $task->name }}
+                                    <span class="font-semibold text-gray-900 dark:text-white">
+                                        {{ $task->name }}
                                     </span> --
                                     <span class="font-bold text-gray-50"> {{ $task->status }}</span>
                                     {{ $task->content }}
                                 </li>
                             @empty
-                                No tasks were found!
+                                No tasks were found! <!-- This message will never be displayed -->
                             @endforelse
                         </ul>
                     @endif

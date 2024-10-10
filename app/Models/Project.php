@@ -30,7 +30,7 @@ class Project extends Model
     {
         return $this->belongsTo(Client::class)
             ->withDefault([
-                'name' => 'Myself'
+                'name' => 'Mijzelf'
             ]);
     }
 

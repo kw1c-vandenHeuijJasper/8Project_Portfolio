@@ -1,133 +1,132 @@
-<!-- TODO: REVAMP HOME PAGE -->
-<!--
-    Available from controller:
-    $projects
-    $clients
--->
-{{-- @dd($projects, $clients) --}}
 <x-app-layout>
 
-
-    <x-page-name name="Hoofdpagina" />
-
-    <!--
-        TODO: List of things on index page
-        Welcome
-        About me
-        Qualities
-        CV?
-    -->
-
-    <!-- Welcome name and study -->
-    <div class="bg-slate-600">
-        <!-- Welcome -->
-        <div class="h-[65px]">
-            <x-important-text content="Welkom!" />
-        </div>
-        <!-- Name and study -->
-        <div class="flex h-auto px-5 text-gray-100 bg-sky-950">
-
-            <div class="flex-1 py-5">
-                <div class="pb-20">
-                    <h2 class="float-right pr-32 text-xl font-medium text-right pt-11">
-                        Jasper van den Heuij
-                    </h2>
-                </div>
-                <div>
-                    <h2 class="float-right pr-32 text-xl font-medium text-right pt-11">
-                        Student Software Development
-                    </h2>
-                </div>
+    <section class="bg-white dark:bg-gray-900">
+        <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
+            <div class="mr-auto place-self-center lg:col-span-7">
+                <h1
+                    class="max-w-2xl mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl dark:text-white">
+                    Hallo, <br> <span class="text-3xl font-bold">Ik ben Jasper van den Heuij.</span>
+                </h1>
+                <p class="max-w-2xl mb-6 font-normal text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
+                    Student Software Development
+                </p>
             </div>
-            <div class="flex-1 py-5">
-                <!-- TODO Find an image -->
-                <!-- Image Placeholder -->
-                <div class="flex items-center justify-center w-[65%] min-h-64  bg-gray-300 rounded  dark:bg-gray-700">
-                    <svg class="w-[20%] h-10 text-gray-200 dark:text-gray-600" aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
-                        <path
-                            d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z" />
-                    </svg>
-                </div>
+            <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
+                <!-- IMAGE HERE -->
+                <img src="https://placehold.co/442x331" alt="Image goes here">
             </div>
         </div>
+    </section>
+    <div class="max-w-2xl mx-auto text-center">
+        <h2
+            class="pb-10 text-3xl font-extrabold leading-tight tracking-tight text-gray-900 sm:text-4xl dark:text-white">
+            Kwaliteiten
+        </h2>
+        <x-progress name="HTML" percentage="95" />
+        <x-progress name="CSS" percentage="80" />
+        <x-progress name="JS" percentage="15" />
+        <x-progress name="PHP" percentage="80" />
+        <x-progress name="SQL" percentage="75" />
+        <x-progress name="Laravel" percentage="70" />
+        <x-progress name="Filament" percentage="70" />
     </div>
 
-    <!-- About me -->
-    <div class="pb-10 bg-slate-600">
-        <div class="h-fit">
-            <x-important-text content="Over mij" />
+    <section class="antialiased bg-white dark:bg-gray-900">
+        <div class="max-w-screen-xl px-4 py-8 mx-auto lg:px-6 sm:py-16 lg:py-24">
+            <div class="max-w-2xl mx-auto text-center">
+                <h2
+                    class="text-3xl font-extrabold leading-tight tracking-tight text-gray-900 sm:text-4xl dark:text-white">
+                    Meest recente projecten
+                </h2>
+                <p class="mt-4 text-base font-normal text-gray-500 sm:text-xl dark:text-gray-400">
+                    Dit zijn de 3 meest recente projecten
+                </p>
+            </div>
 
-            <div class="flex overflow-x-hidden text-center flex-direction-right">
-                <div class="flex-1 px-40">
-                    <div class="text-black rounded-lg bg-slate-400">
-                        <!-- TODO about me -->
-
-                        <!-- Lorem -->
-                        <div class="py-8 overflow-y-hidden text-3xl">
-                            <p>
-                                Hoi, ik ben Jasper van den Heuij <br><br>
-                                Ik ben 17 jaar oud en ik doe de opleiding software development op het Koning Willem 1
-                                College in
-                                Cuijk.<br>
-                                Dit is mijn portfolio website
-                            </p><br>
-
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
-                                Alias earum ad debitis autem hic impedit dignissimos molestias aliquam eos ipsum. <br>
-                                Dignissimos est, autem quasi pariatur non eligendi adipisci cumque tempore.
-                            </p>
-                        </div>
+            <div class="grid grid-cols-1 mt-12 text-center sm:mt-16 gap-x-20 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+                @forelse ($projects as $project)
+                    <div class="space-y-4">
+                        <a href="{{ route('clients') . '/' . $project->client->id }}">
+                            <span
+                                class="bg-gray-100 text-gray-900 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300">
+                                {{ $project->client->name }}
+                            </span>
+                        </a>
+                        <h3 class="text-2xl font-bold leading-tight text-gray-900 dark:text-white">
+                            <a href="{{ route('projects') . '/' . $project->id }}">
+                                {{ $project->name }}
+                            </a>
+                        </h3>
+                        <p class="text-lg font-normal text-gray-500 dark:text-gray-400">
+                            {{ $project->content }}
+                        </p>
+                        <a href="{{ route('projects') . '/' . $project->id }}" title=""
+                            class="text-white bg-primary-700 justify-center hover:bg-primary-800 inline-flex items-center  focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                            role="button">
+                            Ga naar project
+                            <svg aria-hidden="true" class="w-5 h-5 ml-2 -mr-1" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </a>
                     </div>
+                @empty
+                    No recent projects found
+                @endforelse
+
+
+                {{-- <div class="space-y-4">
+                    <span
+                        class="bg-gray-100 text-gray-900 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300">
+                        Microsoft Corp.
+                    </span>
+                    <h3 class="text-2xl font-bold leading-tight text-gray-900 dark:text-white">
+                        Management system
+                    </h3>
+                    <p class="text-lg font-normal text-gray-500 dark:text-gray-400">
+                        Flowbite helps you connect with friends, family and communities of people who share your
+                        interests.
+                    </p>
+                    <a href="#" title=""
+                        class="text-white bg-primary-700 justify-center hover:bg-primary-800 inline-flex items-center  focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                        role="button">
+                        View case study
+                        <svg aria-hidden="true" class="w-5 h-5 ml-2 -mr-1" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </a>
                 </div>
+
+                <div class="space-y-4">
+                    <span
+                        class="bg-gray-100 text-gray-900 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300">
+                        Adobe Inc.
+                    </span>
+                    <h3 class="text-2xl font-bold leading-tight text-gray-900 dark:text-white">
+                        Logo design
+                    </h3>
+                    <p class="text-lg font-normal text-gray-500 dark:text-gray-400">
+                        Flowbite helps you connect with friends, family and communities of people who share your
+                        interests.
+                    </p>
+                    <a href="#" title=""
+                        class="text-white bg-primary-700 justify-center hover:bg-primary-800 inline-flex items-center  focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                        role="button">
+                        View case study
+                        <svg aria-hidden="true" class="w-5 h-5 ml-2 -mr-1" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div> --}}
             </div>
         </div>
-    </div>
-    <div class="text-black bg-slate-600">
-        @forelse ($projects as $project)
-
-            <a href="{{ route('projects.show', $project->id) }}">link to project</a><br>
-            {{ $project->name }} <br />
-            {{ $project->content }} <br />
-            {{ $project->client?->name }} <br />
-
-            @if ($project->client->id)
-                <a href="{{ route('clients.show', $project->client->id) }}">link to client</a><br>
-            @endif
-
-            @forelse ($project->images as $image)
-                @once
-                    <img class="max-w-[250px] max-h-[250px]" src="storage/{{ $image->path }}" alt="image here" />
-                @endonce
-            @empty
-                <!-- TODO: Leave 'No image found for this project' message here -->
-            @endforelse
-            <hr>
-        @empty
-            No project information found. At all.
-        @endforelse
-    </div>
-    <!--
-        TODO: index page project
-        See latest 3 projects on this page as a show off, including what client its made for
-        If you click on the project you will be taken to a page about the project
-        If you click on the client you will be taken to a page where you can see everything about that client
-    -->
-
-    <!--
-        TODO: Projects page
-        Show off all made projects
-        Project pictures and links to those projects (slideshows?)
-
-        Under projects you see which client it was made for
-        If you click on the project you will be taken to a page about the project (slideshow?)
-        If you click on the client you will be taken to a page where you can see everything about that client
-    -->
-
-    <!--
-        TODO: Clients page
-        Show off all clients, and when you click on them you will see something about them
-        and all projects they ordered.
-    -->
+    </section>
 </x-app-layout>

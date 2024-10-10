@@ -10,6 +10,7 @@ use App\Http\Controllers\ProjectController;
 // });
 
 Route::get('/', HomeController::class)->name('/');
+Route::get('/old', HomeController::class)->name('/old');
 Route::get('/projects', [ProjectController::class, 'index'])->name('projects');
 Route::get('/projects/{project}', [ProjectController::class, 'show'])->name('projects.show');
 Route::get('/clients', [ClientController::class, 'index'])->name('clients');

@@ -19,26 +19,12 @@ Route::get('/projects/{project}', [ProjectController::class, 'show'])->name('pro
 Route::get('/clients', [ClientController::class, 'index'])->name('clients');
 Route::get('/clients/{client}', [ClientController::class, 'show'])->name('clients.show');
 
+// Route::get(
+//     '/test',
+//     [\App\Http\Controllers\TestController::class, 'test']
+// );
 Route::get('/test', function () {
-
-    // $project = Project::get();
-    // dd(Project::class->percentage()->toArray());
-    // Project::get()->each(function ($project) {
-
-    //     $max_points = $project->tasks->count() * 2;
-
-    //     $points = $project->tasks->map(function ($task) {
-    //         $task['points'] = $task->status->getPoints();
-    //         return $task;
-    //     })->sum('points');
-
-    //     $percentage = ($points / $max_points) * 100;
-
-    //     dump([
-    //         $points . '/' . $max_points,
-    //         (int) $percentage
-    //     ]);
-    // });
+    Project::get()->each(fn($project) => dump($project->percentage));
 });
 
 // Used for slideshow testing

@@ -54,10 +54,16 @@
             <div class="max-w-5xl mx-auto">
                 <div class="max-w-2xl mx-auto space-y-6">
                     <p class="text-base font-normal text-gray-500 dark:text-gray-400">
+
+                        {{-- @dd($project->toArray()) --}}
                         {{ $project->content }}
+
                     </p>
                     @if (!$project->tasks->isEmpty())
+
                         <p class="text-base font-semibold text-gray-900 dark:text-white">Tasks</p>
+                        <x-progress name="Total Completion Percentage" percentage="{{ $project->percentage }}" />
+
 
                         <ul
                             class="pl-4 space-y-4 text-base font-normal text-gray-500 list-disc list-outside dark:text-gray-400">
@@ -66,7 +72,28 @@
                                     <span class="font-semibold text-gray-900 dark:text-white">
                                         {{ $task->name }}
                                     </span> --
-                                    <span class="font-bold text-gray-50"> {{ $task->status }}</span>
+
+                                    <!-- ENUM labels from filament dont work
+                                    So this is a solution -->
+                                    @if ($task->status->value == 0)
+                                        @php
+                                            $task_status_name = 'Not Started';
+                                        @endphp
+                                    @else
+                                        @if ($task->status->value == 1)
+                                            @php
+                                                $task_status_name = 'Halfway';
+                                            @endphp
+                                        @else
+                                            @if ($task->status->value == 2)
+                                                @php
+                                                    $task_status_name = 'Done';
+                                                @endphp
+                                            @endif
+                                        @endif
+                                    @endif
+
+                                    <span class="font-bold text-gray-50"> {{ $task_status_name }}</span>
                                     {{ $task->content }}
                                 </li>
                             @empty

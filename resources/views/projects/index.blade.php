@@ -13,7 +13,7 @@
                     Klik op de naam van de opdrachtgever om al hun opdrachten te weergeven.
                 </p>
             </div>
-            <div class="grid gap-8 mb-6 lg:mb-16 md:grid-cols-2">
+            <div class="grid gap-8 mb-6 lg:mb-16 md:grid-cols-2 ">
                 @forelse ($projects as $project)
                     <div class="items-center rounded-lg shadow bg-gray-50 sm:flex dark:bg-gray-800 dark:border-gray-700">
                         <div>
@@ -49,6 +49,8 @@
                                 <p class="mt-3 mb-4 font-light text-gray-500 dark:text-gray-400">{{ $project->content }}
                                 </p>
                             </a>
+
+                            <x-progress name="Completion" percentage="{{ $project->percentage }}" />
                             <ul class="flex space-x-4 sm:mt-0">
                                 <li>
                                     <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
@@ -60,9 +62,11 @@
                                     </a>
                                 </li>
                             </ul>
+
                         </div>
                     </div>
                 @empty
+
                     Somehow no projects were found.
                 @endforelse
             </div>

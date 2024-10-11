@@ -6,11 +6,11 @@ use Filament\Support\Contracts\HasColor;
 use Filament\Support\Contracts\HasIcon;
 use Filament\Support\Contracts\HasLabel;
 
-enum Status: string implements HasLabel, HasColor, HasIcon
+enum Status: int implements HasLabel, HasColor, HasIcon
 {
-    case NOT_STARTED = 'ns';
-    case HALFWAY = 'h';
-    case DONE = 'd';
+    case NOT_STARTED = 0;
+    case HALFWAY = 1;
+    case DONE = 2;
 
     public function getPoints()
     {

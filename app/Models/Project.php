@@ -3,15 +3,16 @@
 namespace App\Models;
 
 use App\Models\Task;
-use App\Models\Client;
-use App\Models\Image;
 use App\ProjectType;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Image;
+use App\Models\Client;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Project extends Model
 {
@@ -22,23 +23,37 @@ class Project extends Model
     ];
 
 
-    public function percentage()
+    public function percentage(): Attribute
     {
-        Project::get()->each(function ($project) {
-            $max_points = $project->tasks->count() * 2;
+        return Attribute::make(
+            get: function () {
+                $max_points = $this->tasks->count() * 2;
 
-            $points = $project->tasks->map(function ($task) {
-                $task['points'] = $task->status->getPoints();
-                return $task;
-            })->sum('points');
+                $points = $this->tasks->map(function ($task) {
+                    $task['points'] = $task->status->getPoints();
+                    return $task;
+                })->sum('points');
 
-            $percentage = ($points / $max_points) * 100;
+                $percentage = ($points / $max_points) * 100;
 
-            dump([
-                $points . '/' . $max_points,
-                (int) $percentage
-            ]);
-        });
+                return  (int) $percentage;
+            }
+        );
+        // Project::get()->each(function ($project) {
+        //     $max_points = $project->tasks->count() * 2;
+
+        //     $points = $project->tasks->map(function ($task) {
+        //         $task['points'] = $task->status->getPoints();
+        //         return $task;
+        //     })->sum('points');
+
+        //     $percentage = ($points / $max_points) * 100;
+
+        //     dump([
+        //         $points . '/' . $max_points,
+        //         (int) $percentage
+        //     ]);
+        // });
     }
 
 

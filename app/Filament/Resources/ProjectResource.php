@@ -43,7 +43,7 @@ class ProjectResource extends Resource
             'End Date' => $record->end_date,
             'Connected to client' => $record->client_id,
 
-            'Tasks' => $record?->task()->count(),
+            'Tasks' => $record?->tasks()->count(),
         ];
     }
 

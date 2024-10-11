@@ -19,28 +19,7 @@ class TaskFactory extends Factory
         return [
             'name' => fake()->words(rand(1, 2), true),
             'content' => fake()->paragraph(),
-            'status' => function () {
-                $rand = rand(0, 5);
-                if ($rand == 0) {
-                    $status = 'Not Started';
-                }
-                if ($rand == 1) {
-                    $status = 'Just Begun';
-                }
-                if ($rand == 2) {
-                    $status = 'Halfway';
-                }
-                if ($rand == 3) {
-                    $status = 'Over Halfway';
-                }
-                if ($rand == 4) {
-                    $status = 'Almost Done';
-                }
-                if ($rand == 5) {
-                    $status = 'Done';
-                }
-                return $status;
-            },
+            'status' => fake()->randomElement(\App\Status::cases()),
             'updated_at' => now(),
             'created_at' => now(),
         ];

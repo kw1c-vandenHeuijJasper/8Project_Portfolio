@@ -2,28 +2,39 @@
 
 namespace App\Filament\Resources\ProjectResource\RelationManagers;
 
+use App\Status;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
+use Filament\Tables\Columns\Summarizers\Count;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Resources\RelationManagers\RelationManager;
 
 class TaskRelationManager extends RelationManager
 {
-    protected static string $relationship = 'task';
+    protected static string $relationship = 'tasks';
+
+    public function complete_amount()
+    {
+        dd(Status::class);
+    }
 
     public function form(Form $form): Form
     {
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->required(),
                 Forms\Components\Textarea::make('content')
+                    ->nullable()
                     ->columnSpanFull(),
-                Forms\Components\TextInput::make('status')
-                    ->maxLength(25),
+                Forms\Components\Select::make('status')
+                    ->options(Status::class)
+                    ->preload()
+                    ->required(),
             ]);
     }
 
@@ -39,10 +50,8 @@ class TaskRelationManager extends RelationManager
                     ->searchable(),
                 Tables\Columns\TextColumn::make('content')
                     ->limit(25),
-                Tables\Columns\TextColumn::make('status')
-                    ->color('info')
-                    ->badge()
-                    ->limit(30),
+                Tables\Columns\SelectColumn::make('status')
+                    ->options(Status::class),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->toggleable(isToggledHiddenByDefault: true),

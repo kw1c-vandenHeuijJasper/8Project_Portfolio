@@ -22,13 +22,11 @@
             class="pb-10 text-3xl font-extrabold leading-tight tracking-tight text-gray-900 sm:text-4xl dark:text-white">
             Kwaliteiten
         </h2>
-        <x-progress name="HTML" percentage="95" />
-        <x-progress name="CSS" percentage="80" />
-        <x-progress name="JS" percentage="15" />
-        <x-progress name="PHP" percentage="80" />
-        <x-progress name="SQL" percentage="75" />
-        <x-progress name="Laravel" percentage="70" />
-        <x-progress name="Filament" percentage="70" />
+        @forelse ($qualities as $quality)
+            <x-progress name="{{ $quality->name }}" percentage="{{ $quality->percentage }}" />
+        @empty
+            No qualities found
+        @endforelse
     </div>
 
     <section class="antialiased bg-white dark:bg-gray-900">

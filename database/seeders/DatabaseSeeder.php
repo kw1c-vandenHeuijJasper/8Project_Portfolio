@@ -24,6 +24,39 @@ class DatabaseSeeder extends Seeder
             'email' => 'jasper@test.com',
             'password' => 'Jasper',
         ]);
+
+
+        \App\Models\Quality::factory(1)->create([
+            'name' => 'HTML',
+            'percentage' => '90',
+        ]);
+        \App\Models\Quality::factory(1)->create([
+            'name' => 'CSS',
+            'percentage' => '80',
+        ]);
+        \App\Models\Quality::factory(1)->create([
+            'name' => 'JS',
+            'percentage' => '20',
+        ]);
+        \App\Models\Quality::factory(1)->create([
+            'name' => 'PHP',
+            'percentage' => '80',
+        ]);
+        \App\Models\Quality::factory(1)->create([
+            'name' => 'SQL',
+            'percentage' => '80',
+        ]);
+        \App\Models\Quality::factory(1)->create([
+            'name' => 'Laravel',
+            'percentage' => '70',
+        ]);
+        \App\Models\Quality::factory(1)->create([
+            'name' => 'Filament',
+            'percentage' => '70',
+        ]);
+
+
+
         // Run factory with every project having a client
         \App\Models\Client::factory(5) // 5 clients
             ->has(

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Client;
 use App\Models\Project;
+use App\Models\Quality;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -19,6 +20,7 @@ class HomeController extends Controller
             ->limit(3)
             ->get();
 
+        $qualities = Quality::get();
         // dd(Project::all()->toArray());
 
         $clients = Client::get();
@@ -26,7 +28,8 @@ class HomeController extends Controller
 
         return view('index', [
             'projects' => $projects,
-            'clients' => $clients
+            'clients' => $clients,
+            'qualities' => $qualities
         ]);
     }
 }

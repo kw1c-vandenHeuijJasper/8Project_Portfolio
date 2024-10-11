@@ -21,7 +21,28 @@ class Project extends Model
         'type' => ProjectType::class
     ];
 
-    public function task(): HasMany
+
+    public function percentage()
+    {
+        Project::get()->each(function ($project) {
+            $max_points = $project->tasks->count() * 2;
+
+            $points = $project->tasks->map(function ($task) {
+                $task['points'] = $task->status->getPoints();
+                return $task;
+            })->sum('points');
+
+            $percentage = ($points / $max_points) * 100;
+
+            dump([
+                $points . '/' . $max_points,
+                (int) $percentage
+            ]);
+        });
+    }
+
+
+    public function tasks(): HasMany
     {
         return $this->hasMany(Task::class);
     }

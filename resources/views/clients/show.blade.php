@@ -64,7 +64,7 @@
                                         <span class="font-semibold text-gray-900 dark:text-white"> {{ $project->name }}
                                         </span> --
                                         <span class="text-gray-50"> {{ $project->content }}</span>
-                                        {{-- {{ $task->content }} --}}
+
                                     </a>
                                 </li>
                             @empty

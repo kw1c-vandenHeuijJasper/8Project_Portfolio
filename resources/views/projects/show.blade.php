@@ -56,12 +56,12 @@
                     <p class="text-base font-normal text-gray-500 dark:text-gray-400">
                         {{ $project->content }}
                     </p>
-                    @if (!$project->task->isEmpty())
+                    @if (!$project->tasks->isEmpty())
                         <p class="text-base font-semibold text-gray-900 dark:text-white">Tasks</p>
 
                         <ul
                             class="pl-4 space-y-4 text-base font-normal text-gray-500 list-disc list-outside dark:text-gray-400">
-                            @forelse ($project->task as $task)
+                            @forelse ($project->tasks as $task)
                                 <li>
                                     <span class="font-semibold text-gray-900 dark:text-white">
                                         {{ $task->name }}

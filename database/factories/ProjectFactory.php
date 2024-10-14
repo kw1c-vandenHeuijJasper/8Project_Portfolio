@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Carbon\Carbon;
+use App\Models\Client;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -26,10 +27,7 @@ class ProjectFactory extends Factory
                 return fake()->dateTimeBetween(Carbon::parse($attributes['start_date']));
             },
             'client_id' => function () {
-                if ((bool)rand(0, 1)) {
-                    return null;
-                }
-                return \App\Models\Client::get()->random()->id;
+                return Client::get()->random()->id;
             },
             'updated_at' => now(),
             'created_at' => now(),

@@ -1,11 +1,11 @@
 <?php
 
-use App\Status;
-use App\Models\Project;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProjectController;
+use App\Models\Project;
+use App\Status;
+use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -20,7 +20,11 @@ Route::get('/clients', [ClientController::class, 'index'])->name('clients');
 Route::get('/clients/{client}', [ClientController::class, 'show'])->name('clients.show');
 
 Route::get('/test', function () {
-    Project::get()->each(fn($project) => dump($project->percentage));
+    dd(
+        Project::get()
+            ->first()
+            ->firstImage()
+    );
 });
 
 // Route::view('test', 'test');

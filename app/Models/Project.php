@@ -39,21 +39,11 @@ class Project extends Model
                 return  (int) $percentage;
             }
         );
-        // Project::get()->each(function ($project) {
-        //     $max_points = $project->tasks->count() * 2;
+    }
 
-        //     $points = $project->tasks->map(function ($task) {
-        //         $task['points'] = $task->status->getPoints();
-        //         return $task;
-        //     })->sum('points');
-
-        //     $percentage = ($points / $max_points) * 100;
-
-        //     dump([
-        //         $points . '/' . $max_points,
-        //         (int) $percentage
-        //     ]);
-        // });
+    public function firstImage()
+    {
+        return $this->images->first();
     }
 
 
@@ -64,10 +54,7 @@ class Project extends Model
 
     public function client(): BelongsTo
     {
-        return $this->belongsTo(Client::class)
-            ->withDefault([
-                'name' => 'Mijzelf'
-            ]);
+        return $this->belongsTo(Client::class);
     }
 
     public function images(): MorphMany

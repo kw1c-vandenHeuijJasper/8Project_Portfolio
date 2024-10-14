@@ -13,13 +13,9 @@ class ClientController extends Controller
      */
     public function index()
     {
-        $projects = Project::get();
-        $clients = Client::get();
+        $clients = Client::with(['project', 'images'])->get();
 
-        return view('/clients.index', [
-            'projects' => $projects,
-            'clients' => $clients
-        ]);
+        return view('/clients.index', ['clients' => $clients]);
     }
 
     /**

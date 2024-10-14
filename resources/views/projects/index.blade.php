@@ -15,29 +15,27 @@
             </div>
             <div class="grid gap-8 mb-6 lg:mb-16 md:grid-cols-2 ">
                 @forelse ($projects as $project)
-
                     <div class="items-center rounded-lg shadow bg-gray-50 sm:flex dark:bg-gray-800 dark:border-gray-700">
+                        {{-- @dd($project->firstImage()) --}}
 
                         <div>
-                            @forelse ($project->images as $image)
-                                @if ($loop->first)
-                                    <img class="max-w-[250px] max-h-[250px] rounded-lg sm:rounded-none sm:rounded-l-lg"
-                                        src="storage/{{ $image->path }}" alt="image here" />
-                                @endif
-                            @empty
-                            @endforelse
+                            @if ($project->firstImage())
+                                <img class="max-w-[250px] max-h-[250px] rounded-lg sm:rounded-none sm:rounded-l-lg"
+                                    src="{{ asset('storage/' . $project->firstImage()->path) }}" alt="image here" />
+                            @endif
                         </div>
                         <div class="p-5">
                             <h3 class="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                <a href="{{ route('projects.show', $project->id) }}">
+                                <a href="{{ route('projects.show', $project) }}">
                                     {{ $project->name }} <br />
                             </h3>
                             <h3 class="float-right text-xs tracking-tight text-gray-900 dark:text-white">
                                 Project # {{ $project->id }}
                             </h3>
 
+                            <!-- TODO fix -->
                             @if ($project->client->id)
-                                <a href="{{ route('clients.show', $project->client->id) }}">
+                                <a href="{{ route('clients.show', $project->client) }}">
                                     <span class="text-gray-500 dark:text-gray-400">
                                         {{ $project->client?->name }}
                                     </span>
@@ -47,10 +45,25 @@
                                     Mijzelf
                                 </span>
                             @endif
+
+
+
+
+
                             <a href="{{ route('projects.show', $project->id) }}">
-                                <p class="mt-3 mb-4 font-light text-gray-500 dark:text-gray-400">{{ $project->content }}
+                                <p @class([
+                                    'min-w-[560px]' => !$project->firstImage(),
+                                    'mt-3',
+                                    'mb-4',
+                                    'font-light',
+                                    'text-gray-500',
+                                    'dark:text-gray-400',
+                                ])>
+                                    {{ $project->content }}
                                 </p>
                             </a>
+
+
 
                             <x-progress name="Completion" percentage="{{ $project->percentage }}" />
                             <ul class="flex space-x-4 sm:mt-0">

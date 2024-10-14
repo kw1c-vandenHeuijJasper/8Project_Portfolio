@@ -14,6 +14,14 @@ class Client extends Model
 {
     use HasFactory;
 
+    public function firstImage()
+    {
+        return $this->images->first();
+    }
+
+
+
+
     public function project(): HasMany
     {
         return $this->hasMany(Project::class);

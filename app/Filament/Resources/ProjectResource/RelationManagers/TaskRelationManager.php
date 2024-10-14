@@ -64,6 +64,12 @@ class TaskRelationManager extends RelationManager
                 //
             ])
             ->headerActions([
+                // Add button here to tag all as done
+                Tables\Actions\Action::make('Complete All')->action(function () {
+                    $this->ownerRecord->tasks()->update(['status' => 2]);
+                })
+                    ->disabled($this->ownerRecord->hasUncompletedTasks())
+                    ->requiresConfirmation(),
                 Tables\Actions\CreateAction::make(),
             ])
             ->actions([

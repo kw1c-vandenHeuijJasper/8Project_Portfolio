@@ -21,7 +21,7 @@ class ProjectFactory extends Factory
         return [
             'name' => fake()->words(rand(1, 2), true),
             'content' => fake()->paragraph(),
-            'type' => rand(0, 1),
+            'type' => rand(0, 2),
             'start_date' => fake()->dateTimeBetween('-2 years', '-1 year'),
             'end_date' => function ($attributes) {
                 return fake()->dateTimeBetween(Carbon::parse($attributes['start_date']));

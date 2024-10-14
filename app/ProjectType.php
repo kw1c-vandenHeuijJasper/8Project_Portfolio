@@ -8,12 +8,15 @@ use Filament\Support\Contracts\HasColor;
 
 enum ProjectType: int implements HasLabel, HasColor, HasIcon
 {
-    case SCHOOL = 0;
-    case STAGE = 1;
+    case MYSELF = 0;
+    case SCHOOL = 1;
+    case STAGE = 2;
+
 
     public function getLabel(): ?string
     {
         return match ($this) {
+            self::MYSELF => 'Mijzelf',
             self::SCHOOL => 'School',
             self::STAGE => 'Stage',
         };
@@ -22,6 +25,7 @@ enum ProjectType: int implements HasLabel, HasColor, HasIcon
     public function getColor(): ?string
     {
         return match ($this) {
+            self::MYSELF => 'danger',
             self::SCHOOL => 'info',
             self::STAGE => 'success',
         };
@@ -30,6 +34,7 @@ enum ProjectType: int implements HasLabel, HasColor, HasIcon
     public function getIcon(): ?string
     {
         return match ($this) {
+            self::MYSELF => 'heroicon-m-academic-cap',
             self::SCHOOL => 'heroicon-m-pencil',
             self::STAGE => 'heroicon-m-eye',
         };

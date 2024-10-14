@@ -46,6 +46,16 @@ class Project extends Model
         return $this->images->first();
     }
 
+    public function hasUncompletedTasks()
+    {
+        return
+            $this
+            ->tasks()
+            ->where('status', '<>', 2)
+            ->get()
+            ->isEmpty();
+    }
+
 
     public function tasks(): HasMany
     {

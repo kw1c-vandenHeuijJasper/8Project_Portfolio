@@ -1,4 +1,4 @@
-<div class="bg-gray-700 h-[4%] text-gray-300 min-h-fit">
+<div class="bg-gray-700 h-[4%] text-gray-300 lg:w-full sm:w-[100vw] min-h-fit">
     <div>
         <nav>
             <ul class="flex p-0 pt-2 m-0 text-center">

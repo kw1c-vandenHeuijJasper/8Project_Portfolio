@@ -15,7 +15,9 @@
             </div>
             <div class="grid gap-8 mb-6 lg:mb-16 md:grid-cols-2 ">
                 @forelse ($projects as $project)
+
                     <div class="items-center rounded-lg shadow bg-gray-50 sm:flex dark:bg-gray-800 dark:border-gray-700">
+
                         <div>
                             @forelse ($project->images as $image)
                                 @if ($loop->first)
@@ -66,8 +68,7 @@
                         </div>
                     </div>
                 @empty
-
-                    Somehow no projects were found.
+                    <span class="text-black dark:text-white">Somehow no projects were found.</span>
                 @endforelse
             </div>
         </div>

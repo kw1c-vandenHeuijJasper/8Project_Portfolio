@@ -19,13 +19,8 @@ Route::get('/projects/{project}', [ProjectController::class, 'show'])->name('pro
 Route::get('/clients', [ClientController::class, 'index'])->name('clients');
 Route::get('/clients/{client}', [ClientController::class, 'show'])->name('clients.show');
 
-// Route::get(
-//     '/test',
-//     [\App\Http\Controllers\TestController::class, 'test']
-// );
 Route::get('/test', function () {
     Project::get()->each(fn($project) => dump($project->percentage));
 });
 
-// Used for slideshow testing
 // Route::view('test', 'test');

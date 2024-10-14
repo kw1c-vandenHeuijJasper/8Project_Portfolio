@@ -50,7 +50,7 @@
                         </div>
                     </div>
                 @empty
-                    Somehow no clients were found.
+                    <span class="text-black dark:text-white">Somehow no clients were found.</span>
                 @endforelse
             </div>
         </div>

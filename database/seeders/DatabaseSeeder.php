@@ -28,45 +28,49 @@ class DatabaseSeeder extends Seeder
 
         \App\Models\Quality::factory(1)->create([
             'name' => 'HTML',
-            'percentage' => '90',
+            'percentage' => 90,
         ]);
         \App\Models\Quality::factory(1)->create([
             'name' => 'CSS',
-            'percentage' => '80',
+            'percentage' => 80,
+        ]);
+        \App\Models\Quality::factory(1)->create([
+            'name' => 'TailwindCSS',
+            'percentage' => 85,
         ]);
         \App\Models\Quality::factory(1)->create([
             'name' => 'JS',
-            'percentage' => '20',
+            'percentage' => 20,
         ]);
         \App\Models\Quality::factory(1)->create([
             'name' => 'PHP',
-            'percentage' => '80',
+            'percentage' => 80,
         ]);
         \App\Models\Quality::factory(1)->create([
             'name' => 'SQL',
-            'percentage' => '80',
+            'percentage' => 60,
         ]);
         \App\Models\Quality::factory(1)->create([
             'name' => 'Laravel',
-            'percentage' => '70',
+            'percentage' => 80,
         ]);
         \App\Models\Quality::factory(1)->create([
             'name' => 'Filament',
-            'percentage' => '70',
+            'percentage' => 70,
         ]);
 
 
 
         // Run factory with every project having a client
-        \App\Models\Client::factory(5) // 5 clients
+        \App\Models\Client::factory(5) // 5 clients //5
             ->has(
-                \App\Models\Project::factory(5) // 25 projects
-                    ->has(\App\Models\Task::factory(5)) // 125 tasks
+                \App\Models\Project::factory(5) // 25 projects //5
+                    ->has(\App\Models\Task::factory(5)) // 125 tasks //5
             )->create();
 
         // Run factory with every project having a 50% chance of having a random client
-        \App\Models\Project::factory(25) // 25 projects
-            ->has(\App\Models\Task::factory(5)) // 125 tasks
+        \App\Models\Project::factory(25) // 25 projects //25
+            ->has(\App\Models\Task::factory(5)) // 125 tasks //5
             ->create();
     }
 }

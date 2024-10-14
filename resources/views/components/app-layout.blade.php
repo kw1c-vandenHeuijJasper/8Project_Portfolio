@@ -9,6 +9,7 @@
 <body class="min-h-screen g-white dark:bg-gray-900 ">
     <x-nav />
     {{ $slot }}
+    <x-footer />
 </body>
 
 </html>

@@ -1,5 +1,5 @@
 @props(['name', 'percentage'])
-<div class="w-full mx-auto min-w-[550px]">
+<div class="w-full py-[6px] mx-auto min-w-[300px]">
     <div class="flex justify-between mb-1">
         <span class="text-base font-medium text-blue-700 dark:text-white">{{ $name }}</span>
         <span class="text-sm font-medium text-blue-700 dark:text-white">{{ $percentage }}%</span>

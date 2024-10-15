@@ -21,12 +21,12 @@ enum Status: int implements HasLabel, HasColor, HasIcon
         };
     }
 
-    public function getLabel(): ?string
+    public function getLabel($locale = 'en'): ?string
     {
         return match ($this) {
-            self::NOT_STARTED => 'Not Started',
-            self::HALFWAY => 'Halfway',
-            self::DONE => 'Done',
+            self::NOT_STARTED => __('NOT_STARTED', locale: $locale),
+            self::HALFWAY => __('HALFWAY', locale: $locale),
+            self::DONE => __('DONE', locale: $locale),
         };
     }
 

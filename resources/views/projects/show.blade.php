@@ -9,9 +9,6 @@
         </div>
         <div class="max-w-screen-xl px-4 mx-auto 2xl:px-0">
             @if (!$project->images->isEmpty())
-                @php
-                    $dot_visible = true;
-                @endphp
                 <div class="relative max-w-4xl mx-auto">
                     <div class="relative overflow-hidden">
                         <div class="slideshow-container">
@@ -22,12 +19,11 @@
                                     <img src="{{ asset('storage/' . $image->path) }}"
                                         class="mx-auto resize-none object-contain   min-w-[500px] max-h-[250px] max-w-[968px]">
                                     <div
-                                        class="absolute bottom-0 w-full p-2 text-base text-center text-white bg-black bg-opacity-50">
-                                        <!-- TODO remove debug info -->
-                                        Debug: <br>{{ $image }}
+                                        class="absolute bottom-0 w-full text-base text-center text-white bg-black bg-opacity-50">
                                     </div>
                                 </div>
                             @endforeach
+
                             <!-- Navigation buttons -->
                             <a class="absolute left-0 p-4 text-lg font-bold text-white transform -translate-y-1/2 bg-black bg-opacity-50 cursor-pointer prev top-1/2 hover:bg-opacity-75"
                                 onclick="plusSlides(-1)">❮</a>
@@ -36,34 +32,22 @@
                         </div>
                     </div>
 
-
                     <!-- Dot for navigation -->
-                    @if ($dot_visible == true)
-                        <div class="flex justify-center mt-4">
-                            <span class="w-4 h-4 bg-gray-400 rounded-full cursor-pointer dot"
-                                onclick="currentSlide(1)"></span>
-                        </div>
-                    @endif
-
+                    <div class="flex justify-center mt-4">
+                        <span class="w-4 h-4 bg-gray-400 rounded-full cursor-pointer dot"
+                            onclick="currentSlide(1)"></span>
+                    </div>
                 </div>
             @endif
-
-
-
 
             <div class="max-w-5xl mx-auto">
                 <div class="max-w-2xl mx-auto space-y-6">
                     <p class="text-base font-normal text-gray-500 dark:text-gray-400">
-
-                        {{-- @dd($project->toArray()) --}}
                         {{ $project->content }}
-
                     </p>
                     @if (!$project->tasks->isEmpty())
-
                         <p class="text-base font-semibold text-gray-900 dark:text-white">Tasks</p>
                         <x-progress name="Total Completion Percentage" percentage="{{ $project->percentage }}" />
-
 
                         <ul
                             class="pl-4 space-y-4 text-base font-normal text-gray-500 list-disc list-outside dark:text-gray-400">
@@ -73,31 +57,15 @@
                                         {{ $task->name }}
                                     </span> --
 
-                                    <!-- ENUM labels from filament dont work
-                                    So this is a solution -->
-                                    @if ($task->status->value == 0)
-                                        @php
-                                            $task_status_name = 'Not Started';
-                                        @endphp
-                                    @else
-                                        @if ($task->status->value == 1)
-                                            @php
-                                                $task_status_name = 'Halfway';
-                                            @endphp
-                                        @else
-                                            @if ($task->status->value == 2)
-                                                @php
-                                                    $task_status_name = 'Done';
-                                                @endphp
-                                            @endif
-                                        @endif
-                                    @endif
-
-                                    <span class="font-bold text-gray-50"> {{ $task_status_name }}</span>
+                                    <span
+                                        class="font-bold text-gray-50">{{ $task->status->getLabel($locale = 'nl') }}</span>
                                     {{ $task->content }}
                                 </li>
+
+
+
                             @empty
-                                No tasks were found! <!-- This message will never be displayed -->
+                                No tasks were found!
                             @endforelse
                         </ul>
                     @endif

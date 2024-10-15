@@ -8,9 +8,6 @@
         </div>
         <div class="max-w-screen-xl px-4 mx-auto 2xl:px-0">
             @if (!$client->images->isEmpty())
-                @php
-                    $dot_visible = true;
-                @endphp
                 <div class="relative max-w-4xl mx-auto">
                     <div class="relative overflow-hidden">
                         <div class="slideshow-container">
@@ -21,9 +18,7 @@
                                     <img src="{{ asset('storage/' . $image->path) }}"
                                         class="mx-auto resize-none object-contain   min-w-[500px] max-h-[250px] max-w-[968px]">
                                     <div
-                                        class="absolute bottom-0 w-full p-2 text-base text-center text-white bg-black bg-opacity-50">
-                                        <!-- TODO remove debug info -->
-                                        Debug: <br>{{ $image }}
+                                        class="absolute bottom-0 w-full text-base text-center text-white bg-black bg-opacity-50">
                                     </div>
                                 </div>
                             @endforeach
@@ -34,20 +29,14 @@
                                 onclick="plusSlides(1)">❯</a>
                         </div>
                     </div>
-
-
                     <!-- Dots for navigation -->
-                    @if ($dot_visible = true)
-                        <div class="flex justify-center mt-4">
-                            <span class="w-4 h-4 bg-gray-400 rounded-full cursor-pointer dot"
-                                onclick="currentSlide(1)"></span>
-                        </div>
-                    @endif
-
-                </div>
+                    <div class="flex justify-center mt-4">
+                        <span class="w-4 h-4 bg-gray-400 rounded-full cursor-pointer dot" onclick="currentSlide(1)">
+                        </span>
+                    </div>
             @endif
 
-            <div class="">
+            <div>
                 <div class="max-w-2xl mx-auto">
                     <p class="py-5 text-base font-normal text-center text-gray-500 dark:text-gray-400">
                         {{ $client->description }}

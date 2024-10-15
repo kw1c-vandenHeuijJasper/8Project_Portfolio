@@ -1,6 +1,5 @@
 <x-app-layout>
 
-    <!-- TODO Remove? -->
     <x-page-name name="Home" />
 
     <section class="bg-white dark:bg-gray-900">
@@ -51,12 +50,9 @@
         @forelse ($qualities as $quality)
             <x-progress name="{{ $quality->name }}" percentage="{{ $quality->percentage }}" />
         @empty
-            <span class="text-black dark:text-white">No qualities found</span>
+            <span class="text-black dark:text-white">Geen kwaliteiten gevonden in de database.</span>
         @endforelse
     </div>
-
-
-
 
     <section class="bg-white dark:bg-gray-900 ">
         <div class="max-w-screen-xl px-4 py-8 mx-auto border sm:py-16 lg:px-6 border-x-gray-800 border-y-gray-900">
@@ -173,10 +169,6 @@
         </div>
     </section>
 
-
-
-
-
     <section class="pb-12 antialiased bg-white dark:bg-gray-900">
         <div class="max-w-screen-xl px-4 py-8 mx-auto lg:px-6 sm:py-16 lg:py-24">
             <div class="max-w-2xl mx-auto text-center">
@@ -206,7 +198,7 @@
                         <p class="text-lg font-normal text-gray-500 dark:text-gray-400">
                             {{ $project->content }}
                         </p>
-                        <a href="{{ route('projects') . '/' . $project->id }}" title=""
+                        <a href="{{ route('projects') . '/' . $project->id }}"
                             class="text-white bg-primary-700 justify-center hover:bg-primary-800 inline-flex items-center  focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
                             role="button">
                             Ga naar project

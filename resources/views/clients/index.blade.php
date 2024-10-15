@@ -5,9 +5,9 @@
         <div class="max-w-screen-xl px-4 py-8 mx-auto lg:py-16 lg:px-6 ">
             <div class="max-w-screen-sm mx-auto mb-8 text-center lg:mb-16">
                 <p class="font-light text-gray-500 lg:mb-16 sm:text-xl dark:text-gray-400">
-                    <!--
-                        TODO Write a description
-                     -->
+                    Hier staan alle opdrachtgevers. <br>
+                    Klik op hun naam om naar hun pagina te gaan. <br>
+                    Daar zul je ook al hun gevraagde projecten zien.
                 </p>
             </div>
             <div class="grid gap-8 mb-6 lg:mb-16 md:grid-cols-2">
@@ -20,19 +20,33 @@
                                     alt="$client->firstImage() here" />
                             @endif
                         </div>
-                        <div class="p-5">
+                        <div class="p-5 min-w-560px">
                             <h3 class="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
                                 <a href="{{ route('clients.show', $client->id) }}">
                                     {{ $client->name }} <br />
                             </h3>
                             <h3 class="float-right text-xs tracking-tight text-gray-900 dark:text-white">
-                                Client # {{ $client->id }}
+                                Client #{{ $client->id }}
                             </h3>
 
-                            <a href="{{ route('clients.show', $client->id) }}">
-                                <p class="mt-3 mb-4 font-light text-gray-500 dark:text-gray-400">
+                            <!-- If a client has an image show this styling and if not show another styling -->
+                            <a class="" href="{{ route('clients.show', $client->id) }}">
+                                <p @class([
+                                    'min-w-[340px]' => $client->firstImage(),
+                                    'min-w-[560px]' => !$client->firstImage(),
+                                    'mt-3',
+                                    'mb-4',
+                                    'font-light',
+                                    'text-gray-500',
+                                    'dark:text-gray-400',
+                                ])>
                                     {{ $client->description }}
                                 </p>
+
+
+                                {{-- <p class="mt-3 mb-4 font-light text-gray-500 dark:text-gray-400">
+                                    
+                                </p> --}}
                             </a>
                             <ul class="flex space-x-4 sm:mt-0">
                                 <li>
@@ -48,7 +62,7 @@
                         </div>
                     </div>
                 @empty
-                    <span class="text-black dark:text-white">Somehow no clients were found.</span>
+                    <span class="text-black dark:text-white">No clients were found.</span>
                 @endforelse
             </div>
         </div>

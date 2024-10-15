@@ -2,11 +2,10 @@
     <div class="max-w-screen-xl mx-auto">
         <div class="md:flex md:justify-between">
             <div class="mb-6 md:mb-0">
-                <a href="#" class="flex items-center">
+                <a class="flex items-center">
                     <!-- TODO Image -->
                     <img src="https://placehold.co/1200x600" class="mr-3 max-w-[300px] max-h-[150px]"
                         alt="Logo/image here" />
-                    {{-- <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span> --}}
                 </a>
             </div>
             <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
@@ -16,16 +15,16 @@
                     </h2>
                     <ul class="text-gray-600 dark:text-gray-400">
                         <li>
-                            <a href="#" class="hover:underline ">PHP 8.3.10</a>
+                            <a href="https://www.php.net/" class="hover:underline ">PHP 8.3.10</a>
                         </li>
                         <li>
-                            <a href="#" class="hover:underline">Laravel 11.25.0</a>
+                            <a href="https://laravel.com/" class="hover:underline">Laravel 11.25.0</a>
                         </li>
                         <li>
-                            <a href="#" class="hover:underline">Filament 3.2.115</a>
+                            <a href="https://filamentphp.com/" class="hover:underline">Filament 3.2.115</a>
                         </li>
                         <li>
-                            <a href="#" class="hover:underline">Tailwind 3.4.13</a>
+                            <a href="https://tailwindcss.com/" class="hover:underline">Tailwind 3.4.13</a>
                         </li>
                     </ul>
                 </div>
@@ -35,10 +34,10 @@
                     </h2>
                     <ul class="text-gray-600 dark:text-gray-400">
                         <li class="mb-4">
-                            <a href="#" class="hover:underline ">Wanroij</a>
+                            <a class="hover:underline ">Wanroij</a>
                         </li>
                         <li>
-                            <a href="#" class="hover:underline">Boxmeer</a>
+                            <a class="hover:underline">Boxmeer</a>
                         </li>
                     </ul>
                 </div>
@@ -46,12 +45,11 @@
                 <div>
                     <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Contact</h2>
                     <ul class="text-gray-600 dark:text-gray-400">
-                        <!-- TODO FILL INFO -->
                         <li class="mb-4">
-                            <a href="#" class="text-blue-500 hover:underline">jasperictwebsite@gmail.com</a>
+                            <a class="text-blue-500 hover:underline">jasperictwebsite@gmail.com</a>
                         </li>
                         <li>
-                            <a href="#" class="hover:underline">06-123-456-789</a>
+                            <a class="hover:underline">+31 6 29546037</a>
                         </li>
                     </ul>
                 </div>

@@ -2,16 +2,15 @@
 
 namespace App;
 
+use Filament\Support\Contracts\HasColor;
 use Filament\Support\Contracts\HasIcon;
 use Filament\Support\Contracts\HasLabel;
-use Filament\Support\Contracts\HasColor;
 
-enum ProjectType: int implements HasLabel, HasColor, HasIcon
+enum ProjectType: int implements HasColor, HasIcon, HasLabel
 {
     case MYSELF = 0;
     case SCHOOL = 1;
     case STAGE = 2;
-
 
     public function getLabel(): ?string
     {

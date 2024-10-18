@@ -2,26 +2,21 @@
 
 namespace App\Models;
 
-use App\Models\Task;
 use App\ProjectType;
-use App\Models\Image;
-use App\Models\Client;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
-use Illuminate\Database\Eloquent\Relations\HasOne;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 class Project extends Model
 {
     use HasFactory;
 
     protected $casts = [
-        'type' => ProjectType::class
+        'type' => ProjectType::class,
     ];
-
 
     public function percentage(): Attribute
     {
@@ -31,12 +26,13 @@ class Project extends Model
 
                 $points = $this->tasks->map(function ($task) {
                     $task['points'] = $task->status->getPoints();
+
                     return $task;
                 })->sum('points');
 
                 $percentage = ($points / $max_points) * 100;
 
-                return  (int) $percentage;
+                return (int) $percentage;
             }
         );
     }
@@ -50,12 +46,11 @@ class Project extends Model
     {
         return
             $this
-            ->tasks()
-            ->where('status', '<>', 2)
-            ->get()
-            ->isEmpty();
+                ->tasks()
+                ->where('status', '<>', 2)
+                ->get()
+                ->isEmpty();
     }
-
 
     public function tasks(): HasMany
     {

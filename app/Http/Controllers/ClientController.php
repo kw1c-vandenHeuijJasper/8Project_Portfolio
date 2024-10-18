@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
-use App\Models\Project;
-use Illuminate\Http\Request;
 
 class ClientController extends Controller
 {
@@ -24,6 +22,7 @@ class ClientController extends Controller
     public function show(Client $client)
     {
         $image_count = $client->images->count();
+
         return view('clients.show', ['client' => $client, 'image_count' => $image_count]);
     }
 }

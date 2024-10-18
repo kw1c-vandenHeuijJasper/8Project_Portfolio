@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Client;
 use App\Models\Project;
-use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
@@ -24,6 +22,7 @@ class ProjectController extends Controller
     public function show(Project $project)
     {
         $image_count = $project->images->count();
+
         return view('projects.show', ['project' => $project, 'image_count' => $image_count]);
     }
 }

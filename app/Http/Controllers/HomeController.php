@@ -29,7 +29,7 @@ class HomeController extends Controller
         return view('index', [
             'projects' => $projects,
             'clients' => $clients,
-            'qualities' => $qualities
+            'qualities' => $qualities,
         ]);
     }
 }

@@ -4,7 +4,6 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProjectController;
 use App\Models\Project;
-use App\Status;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -29,8 +28,6 @@ Route::get('/test', function () {
             ->where('status', '<>', 2)
             ->get()
             ->isEmpty();
-
-
 
         dump($result);
     }

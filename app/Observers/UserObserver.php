@@ -12,7 +12,7 @@ class UserObserver
      */
     public function created(User $user): void
     {
-        Log::info("A user with the name " . $user->name . " has been made! At the time of " . $user->created_at);
+        Log::info('A user with the name '.$user->name.' has been made! At the time of '.$user->created_at);
     }
 
     /**
@@ -20,7 +20,7 @@ class UserObserver
      */
     public function updated(User $user): void
     {
-        Log::info("The user " . $user->name . " has been updated!");
+        Log::info('The user '.$user->name.' has been updated!');
     }
 
     /**
@@ -28,7 +28,7 @@ class UserObserver
      */
     public function deleted(User $user): void
     {
-        Log::info("The user " . $user->name . " has been deleted!");
+        Log::info('The user '.$user->name.' has been deleted!');
     }
 
     /**

@@ -2,14 +2,13 @@
 
 namespace Database\Seeders;
 
-use App\Models\Task;
-use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Client;
 use App\Models\Project;
+// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Quality;
+use App\Models\Task;
+use App\Models\User;
 use Illuminate\Database\Seeder;
-use Illuminate\Database\Eloquent\Factories\Sequence;
 
 class DatabaseSeeder extends Seeder
 {
@@ -28,7 +27,6 @@ class DatabaseSeeder extends Seeder
             'email' => 'jasper@test.com',
             'password' => 'Jasper',
         ]);
-
 
         Quality::factory(1)->create([
             'name' => 'HTML',
@@ -67,8 +65,6 @@ class DatabaseSeeder extends Seeder
             'name' => 'Jasper van den Heuij',
             'description' => 'Maker van de website',
         ]);
-
-
 
         // Run factory with every project having a client
         Client::factory(5) // 5 clients //5

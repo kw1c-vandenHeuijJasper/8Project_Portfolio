@@ -4,13 +4,10 @@ namespace App\Filament\Resources\ProjectResource\RelationManagers;
 
 use App\Status;
 use Filament\Forms;
-use Filament\Tables;
 use Filament\Forms\Form;
-use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Filament\Tables\Columns\Summarizers\Count;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Resources\RelationManagers\RelationManager;
+use Filament\Tables;
+use Filament\Tables\Table;
 
 class TaskRelationManager extends RelationManager
 {

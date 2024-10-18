@@ -4,7 +4,6 @@ namespace App\Console\Commands;
 
 use App\Models\Image;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
 class DeleteUnusedFiles extends Command
@@ -31,7 +30,7 @@ class DeleteUnusedFiles extends Command
         $images = Image::pluck('path')->toArray();
 
         collect(Storage::disk('public')->allFiles())
-            ->reject(fn(string $file) => $file === '.gitignore' || in_array($file, $images))
-            ->each(fn($file) => Storage::disk('public')->delete($file));
+            ->reject(fn (string $file) => $file === '.gitignore' || in_array($file, $images))
+            ->each(fn ($file) => Storage::disk('public')->delete($file));
     }
 }

@@ -2,12 +2,9 @@
 
 namespace App\Models;
 
-use App\Models\Image;
-use App\Models\Project;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\MorphTo;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 class Client extends Model
@@ -18,9 +15,6 @@ class Client extends Model
     {
         return $this->images->first();
     }
-
-
-
 
     public function project(): HasMany
     {

@@ -20,13 +20,31 @@ class QualityResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'Qualities';
 
+    public static function getGlobalSearchResultTitle(\Illuminate\Database\Eloquent\Model $record): string
+    {
+        return $record->name;
+    }
+
+    public static function getGloballySearchableAttributes(): array
+    {
+        return ['name', 'percentage'];
+    }
+
+    public static function getGlobalSearchResultDetails(\Illuminate\Database\Eloquent\Model $record): array
+    {
+        return [
+            'Percentage' => $record->percentage,
+        ];
+    }
+
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->searchable(),
                 Forms\Components\TextInput::make('percentage')
                     ->required()
                     ->integer()

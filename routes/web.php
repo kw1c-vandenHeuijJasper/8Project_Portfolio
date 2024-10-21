@@ -19,18 +19,20 @@ Route::get('/clients', [ClientController::class, 'index'])->name('clients');
 Route::get('/clients/{client}', [ClientController::class, 'show'])->name('clients.show');
 
 Route::get('/test', function () {
+    //testing
+    return;
+    // $clients = \App\Models\Client::get();
+    // foreach ($clients as $client) {
+    //     dump($client->projectCount());
+    // }
+    // dd(
+    //     \App\Models\Client::with(
+    //         ['project']
+    //     )
+    //         ->where('projectCount', 5)
+    //         ->get()
 
-    foreach ([1, 2] as $id) {
-
-        $result = Project::query()
-            ->find($id)
-            ->tasks()
-            ->where('status', '<>', 2)
-            ->get()
-            ->isEmpty();
-
-        dump($result);
-    }
+    // );
 });
 
 // Route::view('test', 'test');

@@ -16,6 +16,11 @@ class Client extends Model
         return $this->images->first();
     }
 
+    public function projectCount(): Int
+    {
+        return $this->project()->count();
+    }
+
     public function project(): HasMany
     {
         return $this->hasMany(Project::class);

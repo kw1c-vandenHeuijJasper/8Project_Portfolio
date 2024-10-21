@@ -33,7 +33,6 @@ class ProjectResource extends Resource
 
     public static function getGlobalSearchResultDetails(\Illuminate\Database\Eloquent\Model $record): array
     {
-        // dd();
         return [
             'Content' => $record->content,
             'Project Type' => $record->type,
@@ -42,6 +41,7 @@ class ProjectResource extends Resource
             'Connected to client' => $record->client_id,
 
             'Tasks' => $record?->tasks()->count(),
+            'Total Completion' => $record?->percentage . '%',
         ];
     }
 

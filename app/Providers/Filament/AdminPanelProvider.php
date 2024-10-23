@@ -47,6 +47,7 @@ class AdminPanelProvider extends PanelProvider
             ->widgets([
                 \App\Filament\Resources\ProjectResource\Widgets\ProjectInfo::class,
                 \App\Filament\Resources\ProjectResource\Widgets\ClientChart::class,
+                \App\Filament\Resources\ProjectResource\Widgets\ClientChartInfo::class,
                 Widgets\AccountWidget::class,
                 Widgets\FilamentInfoWidget::class,
             ])

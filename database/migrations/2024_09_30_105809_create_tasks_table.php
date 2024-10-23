@@ -16,7 +16,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('content')->nullable();
-            $table->string('status');
+            $table->integer('status')->default(0);
             $table->foreignIdFor(Project::class)->nullable();
             $table->integer('sort')->nullable()->default(null);
             $table->timestamps();

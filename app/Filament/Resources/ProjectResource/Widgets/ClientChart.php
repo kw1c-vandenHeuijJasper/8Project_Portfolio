@@ -5,32 +5,64 @@ namespace App\Filament\Resources\ProjectResource\Widgets;
 use App\Models\Client;
 use Filament\Widgets\ChartWidget;
 
-
 class ClientChart extends ChartWidget
 {
-    protected static ?string $heading = 'Projects';
+    protected int | string | array $columnSpan = 1;
 
-    protected static string $color = 'info';
+    protected static ?string $heading = 'Projects per client';
+
+    protected static ?string $pollingInterval = null;
+
+
 
     protected function getData(): array
     {
         $clients = Client::withCount('project')->get();
 
+        /**
+         * Returns array with clients(key) and amount of projects(value)
+         */
         $data = $clients->mapWithKeys(function ($item) {
             return [
                 $item['name'] =>  $item['project_count']
             ];
         });
 
-        return [
+        /**
+         * Generate random colors and put them in an array
+         */
+        foreach ($data as $color) {
+            $colors[] = fake()->rgbCssColor();
+        }
 
+
+        return [
             'datasets' => [
                 [
                     'label' => 'Projects',
                     'data' => $data->values(),
+                    'backgroundColor' => $colors,
                 ],
             ],
             'labels' => $data->keys()
+        ];
+    }
+
+
+    /**
+     * Disables grid lines and displays legend
+     */
+    protected function getOptions(): array
+    {
+        return [
+            'scales' => [
+                'x' => ['display' => false],
+                'y' => ['display' => false]
+            ],
+
+            'plugins' => [
+                'legend' => ['display' => true,],
+            ],
         ];
     }
 

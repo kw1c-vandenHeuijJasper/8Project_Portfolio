@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\ClientController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ProjectController;
+use App\Status;
 use App\Models\Project;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\ProjectController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -19,20 +20,7 @@ Route::get('/clients', [ClientController::class, 'index'])->name('clients');
 Route::get('/clients/{client}', [ClientController::class, 'show'])->name('clients.show');
 
 Route::get('/test', function () {
-    //testing
-    return;
-    // $clients = \App\Models\Client::get();
-    // foreach ($clients as $client) {
-    //     dump($client->projectCount());
-    // }
-    // dd(
-    //     \App\Models\Client::with(
-    //         ['project']
-    //     )
-    //         ->where('projectCount', 5)
-    //         ->get()
-
-    // );
+    dd('Nothing yet! 😭');
 });
 
 // Route::view('test', 'test');

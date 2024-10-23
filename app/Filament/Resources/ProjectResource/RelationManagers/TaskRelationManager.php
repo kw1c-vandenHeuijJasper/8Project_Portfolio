@@ -5,7 +5,7 @@ namespace App\Filament\Resources\ProjectResource\RelationManagers;
 
 use Filament\Forms;
 use Filament\Tables;
-use App\Enums\Status;
+use App\Enums\TaskStatus;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Resources\RelationManagers\RelationManager;
@@ -13,11 +13,6 @@ use Filament\Resources\RelationManagers\RelationManager;
 class TaskRelationManager extends RelationManager
 {
     protected static string $relationship = 'tasks';
-
-    public function complete_amount()
-    {
-        dd(Status::class);
-    }
 
     public function form(Form $form): Form
     {
@@ -30,7 +25,7 @@ class TaskRelationManager extends RelationManager
                     ->nullable()
                     ->columnSpanFull(),
                 Forms\Components\Select::make('status')
-                    ->options(Status::class)
+                    ->options(TaskStatus::class)
                     ->preload()
                     ->required(),
             ]);
@@ -49,7 +44,7 @@ class TaskRelationManager extends RelationManager
                 Tables\Columns\TextColumn::make('content')
                     ->limit(25),
                 Tables\Columns\SelectColumn::make('status')
-                    ->options(Status::class),
+                    ->options(TaskStatus::class),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -62,7 +57,6 @@ class TaskRelationManager extends RelationManager
                 //
             ])
             ->headerActions([
-                // Add button here to tag all as done
                 Tables\Actions\Action::make('Complete All')->action(function () {
                     $this->ownerRecord->tasks()->update(['status' => 2]);
                 })

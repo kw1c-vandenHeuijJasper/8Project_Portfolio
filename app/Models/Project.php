@@ -4,7 +4,7 @@ namespace App\Models;
 
 
 use App\Enums\ProjectType;
-use App\Enums\Status;
+use App\Enums\TaskStatus;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -25,7 +25,7 @@ class Project extends Model
         return $query->whereDoesntHave(
             'tasks',
             function ($query) {
-                $query->whereIn('status', [Status::NOT_STARTED, Status::HALFWAY]);
+                $query->whereIn('status', [TaskStatus::NOT_STARTED, TaskStatus::HALFWAY]);
             }
         );
     }

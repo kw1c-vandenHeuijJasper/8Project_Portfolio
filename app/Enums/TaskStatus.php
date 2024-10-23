@@ -6,7 +6,7 @@ use Filament\Support\Contracts\HasColor;
 use Filament\Support\Contracts\HasIcon;
 use Filament\Support\Contracts\HasLabel;
 
-enum Status: int implements HasColor, HasIcon, HasLabel
+enum TaskStatus: int implements HasColor, HasIcon, HasLabel
 {
     case NOT_STARTED = 0;
     case HALFWAY = 1;

@@ -19,7 +19,7 @@ class TaskFactory extends Factory
         return [
             'name' => fake()->words(rand(1, 2), true),
             'content' => fake()->paragraph(),
-            'status' => fake()->randomElement(\App\Status::cases()),
+            'status' => fake()->randomElement(\App\Enums\TaskStatus::cases()),
             'updated_at' => now(),
             'created_at' => now(),
         ];

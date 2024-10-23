@@ -1,7 +1,5 @@
 <?php
 
-use App\Status;
-use App\Models\Project;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ClientController;

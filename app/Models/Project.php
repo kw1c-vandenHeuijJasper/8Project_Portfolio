@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use App\Status;
-use App\ProjectType;
+
+use App\Enums\ProjectType;
+use App\Enums\Status;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;

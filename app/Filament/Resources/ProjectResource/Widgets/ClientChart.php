@@ -17,14 +17,14 @@ class ClientChart extends ChartWidget
 
     protected function getData(): array
     {
-        $clients = Client::withCount('project')->get();
+        $clients = Client::withCount('projects')->get();
 
         /**
          * Returns array with clients(key) and amount of projects(value)
          */
         $data = $clients->mapWithKeys(function ($item) {
             return [
-                $item['name'] =>  $item['project_count']
+                $item['name'] =>  $item['projects_count']
             ];
         });
 

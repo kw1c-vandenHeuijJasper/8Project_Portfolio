@@ -16,16 +16,17 @@ class ClientChartInfo extends BaseWidget
     {
         return $table
             ->query(
-                \App\Models\Client::withCount('project'),
+                \App\Models\Client::withCount('projects'),
                 // Project::completed()->count(),
             )
             ->columns([
                 Tables\Columns\TextColumn::make('name'),
-                Tables\Columns\TextColumn::make('project_count'),
+                Tables\Columns\TextColumn::make('projects_count'),
                 Tables\Columns\TextColumn::make('id')
                     ->label('Projects Completed')
                     ->formatStateUsing(
-                        fn(Client $record): HtmlString => new HtmlString($record->project()->completed()->count())
+                        //TODO project
+                        fn(Client $record): HtmlString => new HtmlString($record->projects()->completed()->count())
                     ),
             ]);
     }

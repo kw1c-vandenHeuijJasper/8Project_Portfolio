@@ -16,7 +16,8 @@ class Client extends Model
         return $this->images->first();
     }
 
-    public function project(): HasMany
+    //TODO project
+    public function projects(): HasMany
     {
         return $this->hasMany(Project::class);
     }

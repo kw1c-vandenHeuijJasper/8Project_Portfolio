@@ -20,7 +20,8 @@ Route::get('/clients', [ClientController::class, 'index'])->name('clients');
 Route::get('/clients/{client}', [ClientController::class, 'show'])->name('clients.show');
 
 Route::get('/test', function () {
-    dd('Nothing yet! 😭');
+    // dd('Nothing yet! 😭');
+    dd(\App\Models\Client::first()->projects->get(2));
 });
 
 // Route::view('test', 'test');

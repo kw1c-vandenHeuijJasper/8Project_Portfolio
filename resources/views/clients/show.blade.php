@@ -1,4 +1,5 @@
 <x-app-layout>
+
     <x-page-name name="Opdrachtgever {{ $client->id }}" />
     <section class="py-8 antialiased bg-white dark:bg-gray-900 md:py-16">
         <div class="flex">
@@ -41,19 +42,17 @@
                     <p class="py-5 text-base font-normal text-center text-gray-500 dark:text-gray-400">
                         {{ $client->description }}
                     </p>
-
-                    @if (!$client->project->isEmpty())
+                    @if (!$client->projects->isEmpty())
                         <p class="py-8 text-base font-semibold text-gray-900 dark:text-white">Projects</p>
 
                         <ul
                             class="pl-4 space-y-4 text-base font-normal text-gray-500 list-disc list-outside dark:text-gray-400">
-                            @forelse ($client->project as $project)
+                            @forelse ($client->projects as $project)
                                 <li>
                                     <a href="{{ route('projects') . '/' . $project->id }}">
                                         <span class="font-semibold text-gray-900 dark:text-white"> {{ $project->name }}
                                         </span> --
                                         <span class="text-gray-50"> {{ $project->content }}</span>
-
                                     </a>
                                 </li>
                             @empty

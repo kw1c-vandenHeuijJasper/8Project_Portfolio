@@ -6,9 +6,18 @@ use App\Models\Client;
 
 class ClientObserver
 {
-    protected function getColor()
+
+    /**
+     * Returns a random cssRGB color
+     *
+     * @return void
+     */
+    protected function randomColor()
     {
-        return fake()->rgbCssColor();
+        (int)$red = rand(0, 255);
+        (int)$green = rand(0, 255);
+        (int)$blue = rand(0, 255);
+        return 'rgb(' . $red . ', ' . $green . ', ' . $blue . ')';
     }
 
     /**
@@ -16,7 +25,7 @@ class ClientObserver
      */
     public function created(Client $client): void
     {
-        $client->color = $client->color ?? self::getColor();
+        $client->color = $client->color ?? self::randomColor();
         $client->save();
     }
 
@@ -25,7 +34,7 @@ class ClientObserver
      */
     public function updating(Client $client): void
     {
-        $client->color = $client->color ?? self::getColor();
+        $client->color = $client->color ?? self::randomColor();
     }
 
     /**

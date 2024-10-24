@@ -24,27 +24,21 @@ class ClientChart extends ChartWidget
          */
         $data = $clients->mapWithKeys(function ($item) {
             return [
-                $item['name'] =>  $item['projects_count']
+                $item['name'] =>  [
+                    'color' => $item['color'],
+                    'count' => $item['projects_count'],
+                ]
             ];
-        });
+        })->sortBy('count')->reverse();
 
-        /**
-         * Generate random colors and put them in an array
-         */
-        foreach ($clients as $client) {
-            $colors[] = $client->color;
-        }
-        // foreach ($data as $color) {
-        //     $colors[] = fake()->rgbCssColor();
-        // }
 
 
         return [
             'datasets' => [
                 [
                     'label' => 'Projects',
-                    'data' => $data->values(),
-                    'backgroundColor' => $colors,
+                    'data' => $data->pluck('count'),
+                    'backgroundColor' => $data->pluck('color'),
                 ],
             ],
             'labels' => $data->keys()

@@ -44,12 +44,15 @@ class ClientResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
+                    ->placeholder("Client's name...")
                     ->required()
                     ->maxLength(255),
                 Forms\Components\ColorPicker::make('color')
+                    ->placeholder('rgb(255,255,255). If left empty will generate random color.')
                     ->rgb()
                     ->nullable(),
                 Forms\Components\Textarea::make('description')
+                    ->placeholder('Add a description...')
                     ->columnSpanFull(),
             ]);
     }
@@ -58,13 +61,15 @@ class ClientResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\ColorColumn::make('color')
+                    ->label('')
+                    ->width(20),
                 Tables\Columns\TextColumn::make('name')
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\ColorColumn::make('color'),
                 Tables\Columns\TextColumn::make('description')
                     ->searchable()
-                    ->limit(20),
+                    ->limit(50),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

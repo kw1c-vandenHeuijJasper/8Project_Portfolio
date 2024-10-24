@@ -11,27 +11,24 @@ use Illuminate\Support\HtmlString;
 
 class ClientChartInfo extends BaseWidget
 {
+
     public function table(Table $table): Table
     {
         return $table
             ->query(
-                \App\Models\Client::withCount('projects'),
+                Client::withCount('projects'),
             )
             ->columns([
                 Tables\Columns\ColorColumn::make('color')
                     ->label(''),
                 Tables\Columns\TextColumn::make('name'),
                 Tables\Columns\TextColumn::make('projects_count'),
-                Tables\Columns\TextColumn::make('id')
+                Tables\Columns\TextColumn::make('description')
                     ->label('Projects Completed')
                     ->formatStateUsing(
                         fn(Client $record): HtmlString => new HtmlString($record->projects()->completed()->count())
                     ),
-                // Tables\Columns\TextColumn::make('description')
-                //     ->label('Percentage of projects completed')
-                //     ->formatStateUsing(
-                //         fn(Client $record): HtmlString => new HtmlString($record->projects()->completed()->count())
-                //     ),
-            ]);
+            ])
+            ->defaultSort(fn($query) => $query->orderBy('projects_count', 'desc')->orderBy('name', 'asc'));
     }
 }

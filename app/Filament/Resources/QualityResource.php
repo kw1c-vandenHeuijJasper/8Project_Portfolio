@@ -43,8 +43,7 @@ class QualityResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('name')
                     ->required()
-                    ->maxLength(255)
-                    ->searchable(),
+                    ->maxLength(255),
                 Forms\Components\TextInput::make('percentage')
                     ->required()
                     ->integer()

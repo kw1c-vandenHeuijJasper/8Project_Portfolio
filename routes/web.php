@@ -17,6 +17,7 @@ Route::get('/test', function () {
     // dd('Nothing yet! 😭');
 
 
+
     // $total_count = \App\Models\Client::get()->first()->projects->first()->tasks()->count();
     // $completed_count = \App\Models\Client::get()->first()->projects->first()->tasks()->where('status', \App\Enums\TaskStatus::DONE)->count();
     // (int)$percentage = (int)$completed_count / (int)$total_count * (int)100;

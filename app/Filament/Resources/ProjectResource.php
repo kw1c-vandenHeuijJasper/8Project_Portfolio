@@ -51,9 +51,11 @@ class ProjectResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
+                    ->placeholder('Project ...')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\Textarea::make('content')
+                    ->placeholder('Add content...')
                     ->required()
                     ->columnSpanFull(),
                 Forms\Components\Select::make('type')

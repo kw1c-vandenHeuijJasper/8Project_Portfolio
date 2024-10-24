@@ -31,9 +31,12 @@ class ClientChart extends ChartWidget
         /**
          * Generate random colors and put them in an array
          */
-        foreach ($data as $color) {
-            $colors[] = fake()->rgbCssColor();
+        foreach ($clients as $client) {
+            $colors[] = $client->color;
         }
+        // foreach ($data as $color) {
+        //     $colors[] = fake()->rgbCssColor();
+        // }
 
 
         return [

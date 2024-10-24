@@ -29,6 +29,19 @@ class Project extends Model
             }
         );
     }
+    //TODO WIP
+
+    // public function percentageCompleted()
+    // {
+    //     // Returns a percentage(int) of how many tasks are completed
+    //     // Total tasks belonging to user / completed tasks
+
+
+    //     return
+    //         $this->completed()->count()
+    //         // / $this->tasks->count()
+    //     ;
+    // }
 
     /**
      * Casts
@@ -43,11 +56,6 @@ class Project extends Model
      *
      * @return Attribute
      */
-
-    // public function completedCount()
-    // {
-    // return $this->completed()->count();
-    // }
 
     public function percentage(): Attribute
     {
@@ -68,6 +76,9 @@ class Project extends Model
         );
     }
 
+
+
+
     public function firstImage()
     {
         return $this->images->first();
@@ -78,7 +89,7 @@ class Project extends Model
         return
             $this
             ->tasks()
-            ->where('status', '<>', 2)
+            ->where('status', '<>', TaskStatus::DONE)
             ->get()
             ->isEmpty();
     }

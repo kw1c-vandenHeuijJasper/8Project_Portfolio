@@ -4,7 +4,6 @@ namespace App\Filament\Resources\ProjectResource\Widgets;
 
 use Filament\Tables;
 use App\Models\Client;
-use App\Models\Project;
 use Filament\Tables\Table;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Widgets\TableWidget as BaseWidget;
@@ -17,17 +16,22 @@ class ClientChartInfo extends BaseWidget
         return $table
             ->query(
                 \App\Models\Client::withCount('projects'),
-                // Project::completed()->count(),
             )
             ->columns([
+                Tables\Columns\ColorColumn::make('color')
+                    ->label(''),
                 Tables\Columns\TextColumn::make('name'),
                 Tables\Columns\TextColumn::make('projects_count'),
                 Tables\Columns\TextColumn::make('id')
                     ->label('Projects Completed')
                     ->formatStateUsing(
-                        //TODO project
                         fn(Client $record): HtmlString => new HtmlString($record->projects()->completed()->count())
                     ),
+                // Tables\Columns\TextColumn::make('description')
+                //     ->label('Percentage of projects completed')
+                //     ->formatStateUsing(
+                //         fn(Client $record): HtmlString => new HtmlString($record->projects()->completed()->count())
+                //     ),
             ]);
     }
 }

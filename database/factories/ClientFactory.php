@@ -18,6 +18,7 @@ class ClientFactory extends Factory
     {
         return [
             'name' => fake()->company(),
+            'color' => fake()->rgbCssColor(),
             'description' => fake()->paragraph(),
             'updated_at' => now(),
             'created_at' => now(),

@@ -94,6 +94,7 @@ class ProjectResource extends Resource
                     ->sortable(),
                 Tables\Columns\TextColumn::make('client.name')
                     ->numeric()
+                    ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()

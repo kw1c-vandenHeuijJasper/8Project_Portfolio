@@ -6,7 +6,6 @@ use App\Models\Client;
 
 class ClientObserver
 {
-
     /**
      * Returns a random cssRGB color
      *
@@ -14,10 +13,11 @@ class ClientObserver
      */
     protected function randomColor()
     {
-        (int)$red = rand(0, 255);
-        (int)$green = rand(0, 255);
-        (int)$blue = rand(0, 255);
-        return 'rgb(' . $red . ', ' . $green . ', ' . $blue . ')';
+        (int) $red = rand(0, 255);
+        (int) $green = rand(0, 255);
+        (int) $blue = rand(0, 255);
+
+        return 'rgb('.$red.', '.$green.', '.$blue.')';
     }
 
     /**
@@ -42,7 +42,7 @@ class ClientObserver
      */
     public function updated(Client $client): void
     {
-        redirect('/admin/clients/' . $client->id . '/edit');
+        redirect('/admin/clients/'.$client->id.'/edit');
     }
 
     /**

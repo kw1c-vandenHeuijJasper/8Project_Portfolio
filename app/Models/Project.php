@@ -2,16 +2,15 @@
 
 namespace App\Models;
 
-
 use App\Enums\ProjectType;
 use App\Enums\TaskStatus;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 class Project extends Model
 {
@@ -29,34 +28,17 @@ class Project extends Model
             }
         );
     }
-    //TODO WIP
-
-    // public function percentageCompleted()
-    // {
-    //     // Returns a percentage(int) of how many tasks are completed
-    //     // Total tasks belonging to user / completed tasks
-
-
-    //     return
-    //         $this->completed()->count()
-    //         // / $this->tasks->count()
-    //     ;
-    // }
 
     /**
      * Casts
      */
-
     protected $casts = [
         'type' => ProjectType::class,
     ];
 
     /**
      * Returns the percentage of the total project completion amount
-     *
-     * @return Attribute
      */
-
     public function percentage(): Attribute
     {
         return Attribute::make(
@@ -76,9 +58,6 @@ class Project extends Model
         );
     }
 
-
-
-
     public function firstImage()
     {
         return $this->images->first();
@@ -88,10 +67,10 @@ class Project extends Model
     {
         return
             $this
-            ->tasks()
-            ->where('status', '<>', TaskStatus::DONE)
-            ->get()
-            ->isEmpty();
+                ->tasks()
+                ->where('status', '<>', TaskStatus::DONE)
+                ->get()
+                ->isEmpty();
     }
 
     public function tasks(): HasMany

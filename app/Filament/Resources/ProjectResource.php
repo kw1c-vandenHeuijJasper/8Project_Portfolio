@@ -2,15 +2,15 @@
 
 namespace App\Filament\Resources;
 
-use Filament\Forms;
-use Filament\Tables;
-use App\Models\Project;
-use Filament\Forms\Form;
 use App\Enums\ProjectType;
-use Filament\Tables\Table;
-use Filament\Resources\Resource;
 use App\Filament\Resources\ProjectResource\Pages;
 use App\Filament\Resources\ProjectResource\RelationManagers;
+use App\Models\Project;
+use Filament\Forms;
+use Filament\Forms\Form;
+use Filament\Resources\Resource;
+use Filament\Tables;
+use Filament\Tables\Table;
 
 class ProjectResource extends Resource
 {
@@ -42,7 +42,7 @@ class ProjectResource extends Resource
             'Connected to client' => $record->client_id,
 
             'Tasks' => $record?->tasks()->count(),
-            'Total Completion' => $record?->percentage . '%',
+            'Total Completion' => $record?->percentage.'%',
         ];
     }
 

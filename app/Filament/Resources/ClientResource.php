@@ -45,15 +45,16 @@ class ClientResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('name')
                     ->placeholder("Client's name...")
-                    ->required()
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->required(),
                 Forms\Components\ColorPicker::make('color')
                     ->placeholder('rgb(255,255,255). If left empty will generate random color.')
                     ->rgb()
                     ->nullable(),
                 Forms\Components\Textarea::make('description')
                     ->placeholder('Add a description...')
-                    ->columnSpanFull(),
+                    ->columnSpanFull()
+                    ->required(),
             ]);
     }
 

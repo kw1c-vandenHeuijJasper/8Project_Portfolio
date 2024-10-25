@@ -7,13 +7,11 @@ use Filament\Widgets\ChartWidget;
 
 class ClientChart extends ChartWidget
 {
-    protected int | string | array $columnSpan = 1;
+    protected int|string|array $columnSpan = 1;
 
     protected static ?string $heading = 'Projects per client';
 
     protected static ?string $pollingInterval = null;
-
-
 
     protected function getData(): array
     {
@@ -24,14 +22,12 @@ class ClientChart extends ChartWidget
          */
         $data = $clients->mapWithKeys(function ($item) {
             return [
-                $item['name'] =>  [
+                $item['name'] => [
                     'color' => $item['color'],
                     'count' => $item['projects_count'],
-                ]
+                ],
             ];
         })->sortBy('count')->reverse();
-
-
 
         return [
             'datasets' => [
@@ -41,10 +37,9 @@ class ClientChart extends ChartWidget
                     'backgroundColor' => $data->pluck('color'),
                 ],
             ],
-            'labels' => $data->keys()
+            'labels' => $data->keys(),
         ];
     }
-
 
     /**
      * Disables grid lines and displays legend
@@ -54,11 +49,11 @@ class ClientChart extends ChartWidget
         return [
             'scales' => [
                 'x' => ['display' => false],
-                'y' => ['display' => false]
+                'y' => ['display' => false],
             ],
 
             'plugins' => [
-                'legend' => ['display' => true,],
+                'legend' => ['display' => true],
             ],
         ];
     }

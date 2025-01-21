@@ -46,7 +46,7 @@
                                     {{ $project->content }}
                                 </p>
                             </a>
-
+                            <p class="text-gray-300">{{ $project->start_date }} - {{ $project->end_date }}</p>
                             <x-progress name="Completion" percentage="{{ $project->percentage }}" />
 
                         </div>

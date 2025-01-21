@@ -8,20 +8,17 @@ use Filament\Widgets\StatsOverviewWidget\Stat;
 
 class ProjectInfo extends BaseWidget
 {
-    protected int|string|array $columnSpan = 'full';
+    protected function getColumns(): int
+    {
+        return 2;
+    }
 
     protected function getStats(): array
     {
-        $projects = Project::query();
-
         return [
             Stat::make(
                 'Projects Finished',
-                $projects
-                    ->with('client')
-                    ->completed()
-                    ->get('id')
-                    ->count()
+                Project::completed()->count()
             ),
             Stat::make(
                 'Total Projects',

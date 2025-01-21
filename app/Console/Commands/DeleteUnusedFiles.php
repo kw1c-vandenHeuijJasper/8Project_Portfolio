@@ -8,29 +8,19 @@ use Illuminate\Support\Facades\Storage;
 
 class DeleteUnusedFiles extends Command
 {
-    /**
-     * The name and signature of the console command.
-     *
-     * @var string
-     */
-    protected $signature = 'app:delete-unused-files';
+    protected $signature = 'files:delete-unused';
 
-    /**
-     * The console command description.
-     *
-     * @var string
-     */
-    protected $description = 'Command description';
+    protected $description = 'Deletes unused files, which are not declared in the database';
 
-    /**
-     * Execute the console command.
-     */
-    public function handle()
+    public function handle(): void
     {
         $images = Image::pluck('path')->toArray();
+        $files = Storage::disk('public')->allFiles();
 
-        collect(Storage::disk('public')->allFiles())
-            ->reject(fn (string $file) => $file === '.gitignore' || in_array($file, $images))
-            ->each(fn ($file) => Storage::disk('public')->delete($file));
+        if ($files !== [0 => '.gitignore']) {
+            collect(Storage::disk('public')->allFiles())
+                ->reject(fn (string $filePath) => $filePath === '.gitignore' || in_array($filePath, $images))
+                ->each(fn (string $filePath) => Storage::disk('public')->delete($filePath));
+        }
     }
 }

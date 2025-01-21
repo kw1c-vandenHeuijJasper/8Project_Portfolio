@@ -1,14 +1,18 @@
 <x-app-layout>
     <x-page-name name="Project {{ $project->id }}" />
+
     <section class="py-8 antialiased bg-white dark:bg-gray-900 md:py-16">
         <div class="flex">
             <h2 class="mx-auto text-center text-xl font-semibold text-gray-900 dark:text-white sm:text-4xl pb-[25px]">
                 {{ $project->name }} <br> <span class="font-normal">gemaakt voor</span> <br> <a
-                    href="{{ route('clients') . '/' . $project->client->id }}">{{ $project->client->name }}</a>
-            </h2 <h2 class="mx-auto text-xl font-semibold text-gray-900 dark:text-white sm:text-4xl pb-[25px]">
+                    href="{{ route('clients') . '/' . $project->client->id }}">{{ $project->client->name }}</a><br>
+                <span class="text-xl text-gray-400">
+                    {{ $project->start_date }} - {{ $project->end_date }}
+                </span>
+            </h2>
         </div>
         <div class="max-w-screen-xl px-4 mx-auto 2xl:px-0">
-            @if (!$project->images->isEmpty())
+            @if ($project->images->isNotEmpty())
                 <div class="relative max-w-4xl mx-auto">
                     <div class="relative overflow-hidden">
                         <div class="slideshow-container">
@@ -17,7 +21,7 @@
                                     <div class="absolute top-0 left-0 p-2 text-sm text-white numbertext">
                                         {{ $index + 1 }} / {{ $image_count }}</div>
                                     <img src="{{ asset('storage/' . $image->path) }}"
-                                        class="mx-auto resize-none object-contain   min-w-[500px] max-h-[250px] max-w-[968px]">
+                                        class="mx-auto resize-none object-contain min-w-[500px] max-h-[250px] max-w-[968px]">
                                     <div
                                         class="absolute bottom-0 w-full text-base text-center text-white bg-black bg-opacity-50">
                                     </div>
@@ -45,7 +49,7 @@
                     <p class="text-base font-normal text-gray-500 dark:text-gray-400">
                         {{ $project->content }}
                     </p>
-                    @if (!$project->tasks->isEmpty())
+                    @if ($project->tasks->isNotEmpty())
                         <p class="text-base font-semibold text-gray-900 dark:text-white">Tasks</p>
                         <x-progress name="Total Completion Percentage" percentage="{{ $project->percentage }}" />
 
@@ -55,15 +59,12 @@
                                 <li>
                                     <span class="font-semibold text-gray-900 dark:text-white">
                                         {{ $task->name }}
-                                    </span> --
-
+                                    </span>
+                                    ---
                                     <span
                                         class="font-bold text-gray-50">{{ $task->status->getLabel($locale = 'nl') }}</span>
                                     {{ $task->content }}
                                 </li>
-
-
-
                             @empty
                                 No tasks were found!
                             @endforelse

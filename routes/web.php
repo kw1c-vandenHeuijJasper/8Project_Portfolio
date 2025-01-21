@@ -1,47 +1,33 @@
 <?php
 
 use App\Http\Controllers\ClientController;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProjectController;
+use App\Models\Project;
+use App\Models\Quality;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', HomeController::class)->name('/');
+Route::get('/', function (): View {
+    $projects = Project::with([
+        'client',
+        'images',
+    ])
+        ->orderBy('id', 'desc')
+        ->take(3)
+        ->get();
+
+    $qualities = Quality::get();
+
+    return view('index', [
+        'projects' => $projects,
+        'qualities' => $qualities,
+    ]);
+})->name('/');
+
+//FIXME!! cant upload images !!
 
 Route::get('/projects', [ProjectController::class, 'index'])->name('projects');
 Route::get('/projects/{project}', [ProjectController::class, 'show'])->name('projects.show');
 
 Route::get('/clients', [ClientController::class, 'index'])->name('clients');
 Route::get('/clients/{client}', [ClientController::class, 'show'])->name('clients.show');
-
-Route::get('/test', function () {
-    // dd('Nothing yet! 😭');
-
-    // $total_count = \App\Models\Client::get()->first()->projects->first()->tasks()->count();
-    // $completed_count = \App\Models\Client::get()->first()->projects->first()->tasks()->where('status', \App\Enums\TaskStatus::DONE)->count();
-    // (int)$percentage = (int)$completed_count / (int)$total_count * (int)100;
-    // dd(
-    //     (int)$percentage
-    // );
-
-    // $total_count = \App\Models\Client::get()->first()->projects->tasks()->count();
-    // $completed_count = \App\Models\Client::get()->first()->projects->first()->percentage;
-    // (int)$percentage = ((int)$completed_count / (int)$total_count) * (int)100;
-    // dd(
-    //     $total_count,
-    //     $completed_count,
-
-    //     $total_count / $completed_count * 100,
-
-    //     $percentage
-    // );
-});
-
-// TODO Remove test page
-// Route::view('test', 'test');
-
-/**
- * RGB color in db
- * Via color picker and if you did not choose a color
- * generate a random color with observer and put that in db
- * Of course display this in charts
- */

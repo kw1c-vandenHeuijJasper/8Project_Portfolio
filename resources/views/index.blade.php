@@ -1,5 +1,4 @@
 <x-app-layout>
-
     <x-page-name name="Home" />
 
     <section class="bg-white dark:bg-gray-900">
@@ -130,7 +129,7 @@
 
                     </div>
                     <h3 class="mb-2 text-xl font-bold dark:text-white">Stage WoutICT</h3>
-                    <p class="text-sm text-gray-500 dark:text-gray-400">September 2024 - heden</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">September 2024 - Februari 2025</p>
                     <p class="text-gray-500 dark:text-gray-400">Wanroij</p>
                 </div>
                 <div class="px-8 border border-x-gray-800 border-y-gray-900">
@@ -174,7 +173,7 @@
             <div class="max-w-2xl mx-auto text-center">
                 <h2
                     class="text-3xl font-extrabold leading-tight tracking-tight text-gray-900 sm:text-4xl dark:text-white">
-                    Meest recente projecten
+                    Recente projecten
                 </h2>
                 <p class="mt-4 text-base font-normal text-gray-500 sm:text-xl dark:text-gray-400">
                     Dit zijn de 3 meest recente projecten

@@ -2,13 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\Client;
-use App\Models\Project;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use App\Models\Quality;
-use App\Models\Task;
-use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\App;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,65 +13,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory(1)->create([
-            'name' => 'test user',
-            'email' => 'test@test.test',
-            'password' => 'test',
-        ]);
-        User::factory(1)->create([
-            'name' => 'Jasper',
-            'email' => 'jasper@test.com',
-            'password' => 'Jasper',
+        $this->call([
+            PreloadedInformationSeeder::class,
         ]);
 
-        Quality::factory(1)->create([
-            'name' => 'HTML',
-            'percentage' => 90,
-        ]);
-        Quality::factory(1)->create([
-            'name' => 'CSS',
-            'percentage' => 80,
-        ]);
-        Quality::factory(1)->create([
-            'name' => 'TailwindCSS',
-            'percentage' => 85,
-        ]);
-        Quality::factory(1)->create([
-            'name' => 'JS',
-            'percentage' => 20,
-        ]);
-        Quality::factory(1)->create([
-            'name' => 'PHP',
-            'percentage' => 80,
-        ]);
-        Quality::factory(1)->create([
-            'name' => 'SQL',
-            'percentage' => 60,
-        ]);
-        Quality::factory(1)->create([
-            'name' => 'Laravel',
-            'percentage' => 80,
-        ]);
-        Quality::factory(1)->create([
-            'name' => 'Filament',
-            'percentage' => 70,
-        ]);
-
-        Client::factory(1)->create([
-            'name' => 'Jasper van den Heuij',
-            'description' => 'Maker van de website',
-        ]);
-
-        // Run factory with every project having a client
-        Client::factory(5) // 5 clients //5
-            ->has(
-                Project::factory(5) // 25 projects //5
-                    ->has(Task::factory(5)) // 125 tasks //5
-            )->create();
-
-        // Run factory with every project having a 50% chance of having a random client
-        Project::factory(25) // 25 projects //25
-            ->has(Task::factory(5)) // 125 tasks //5
-            ->create();
+        // if (App::isLocal()) {
+        //     $this->call([
+        //         FakeDataSeeder::class
+        //     ]);
+        // }
     }
 }

@@ -13,7 +13,7 @@ class ProjectController extends Controller
     {
         $projects = Project::with(['client', 'images', 'tasks'])->get();
 
-        return view('/projects.index', ['projects' => $projects]);
+        return view('projects.index', ['projects' => $projects]);
     }
 
     /**

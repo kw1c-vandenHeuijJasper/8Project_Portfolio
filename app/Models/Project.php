@@ -51,6 +51,9 @@ class Project extends Model
                     return $task;
                 })->sum('points');
 
+                if ($points == 0 || $max_points == 0) {
+                    return 0;
+                }
                 $percentage = ($points / $max_points) * 100;
 
                 return (int) $percentage;

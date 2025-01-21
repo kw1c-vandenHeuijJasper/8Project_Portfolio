@@ -13,7 +13,7 @@ class ClientController extends Controller
     {
         $clients = Client::with(['projects', 'images'])->get();
 
-        return view('/clients.index', ['clients' => $clients]);
+        return view('clients.index', ['clients' => $clients]);
     }
 
     /**

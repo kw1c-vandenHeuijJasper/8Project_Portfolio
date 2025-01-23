@@ -19,7 +19,7 @@
         </div>
     </section>
 
-    <div class="max-w-2xl mx-auto  pb-[70px]">
+    <div class="max-w-2xl mx-auto pb-[70px]">
         <h2
             class="text-3xl font-extrabold leading-tight tracking-tight text-center text-gray-900 sm:text-4xl dark:text-white">
             Over mij

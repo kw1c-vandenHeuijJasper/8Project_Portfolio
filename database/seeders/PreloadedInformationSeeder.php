@@ -2,14 +2,16 @@
 
 namespace Database\Seeders;
 
-use App\Enums\ProjectType;
-use App\Enums\TaskStatus;
+use App\Models\Task;
+use App\Models\User;
+use App\Models\Image;
 use App\Models\Client;
 use App\Models\Project;
 use App\Models\Quality;
-use App\Models\Task;
-use App\Models\User;
+use App\Enums\TaskStatus;
+use App\Enums\ProjectType;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Storage;
 
 class PreloadedInformationSeeder extends Seeder
 {
@@ -88,6 +90,23 @@ Deze website heeft de basis om posts te maken, liken en verwijderen',
             'end_date' => '28-08-2024',
             'client_id' => Client::where('name', 'Jasper van den Heuij')->first()->id,
         ]);
+
+        $this->useImage(
+            'posty_1.png',
+            Project::class,
+            1
+        );
+        $this->useImage(
+            'posty_2.png',
+            Project::class,
+            1
+        );
+        $this->useImage(
+            'posty_3.png',
+            Project::class,
+            1
+        );
+
         Task::factory()
             ->create([
                 'name' => 'Models',
@@ -125,12 +144,35 @@ hoe ze hand in hand lopen met views',
             'content' => 'De bedoeling was dat dit project weer volgens een filmpje was,
 maar dan dat ik veel dingen zelf moest proberen.
 https://youtu.be/Miea-1jTYl0
-Dit project was wel een stuk moeilijker, omdat ik nog lang niet wist wat alles was.',
+Dit project was wel een stuk moeilijker, omdat ik nog lang niet wist wat alles was.
+Ook omdat degene die mij alles moest leren, vanaf dit project 3 weken weg was,
+dus leren was moeilijker',
             'type' => ProjectType::STAGE,
             'start_date' => '28-08-2024',
             'end_date' => '30-08-2024',
             'client_id' => Client::where('name', 'Jasper van den Heuij')->first()->id,
         ]);
+
+        $this->useImage(
+            'blank_to_blog_1.png',
+            Project::class,
+            2
+        );
+        $this->useImage(
+            'blank_to_blog_2.png',
+            Project::class,
+            2
+        );
+        $this->useImage(
+            'blank_to_blog_3.png',
+            Project::class,
+            2
+        );
+        $this->useImage(
+            'blank_to_blog_4.png',
+            Project::class,
+            2
+        );
 
         Task::factory()
             ->create([
@@ -173,6 +215,33 @@ https://www.youtube.com/watch?v=SqTdHCTWqks',
             'end_date' => '05-09-2024',
             'client_id' => Client::where('name', 'Jasper van den Heuij')->first()->id,
         ]);
+
+        $this->useImage(
+            'learn_laravel_in_30_days_part_1_1.png',
+            Project::class,
+            3
+        );
+        $this->useImage(
+            'learn_laravel_in_30_days_part_1_2.png',
+            Project::class,
+            3
+        );
+        $this->useImage(
+            'learn_laravel_in_30_days_part_1_3.png',
+            Project::class,
+            3
+        );
+        $this->useImage(
+            'learn_laravel_in_30_days_part_1_4.png',
+            Project::class,
+            3
+        );
+        $this->useImage(
+            'learn_laravel_in_30_days_part_1_5.png',
+            Project::class,
+            3
+        );
+
         Task::factory()
             ->create([
                 'name' => 'Dagen 1-10',
@@ -206,6 +275,23 @@ https://www.youtube.com/watch?v=SqTdHCTWqks',
             'end_date' => '06-09-2024',
             'client_id' => Client::where('name', 'Jasper van den Heuij')->first()->id,
         ]);
+
+        $this->useImage(
+            'learn_laravel_in_30_days_part_2_1.png',
+            Project::class,
+            4
+        );
+        $this->useImage(
+            'learn_laravel_in_30_days_part_2_2.png',
+            Project::class,
+            4
+        );
+        $this->useImage(
+            'learn_laravel_in_30_days_part_2_3.png',
+            Project::class,
+            4
+        );
+
         Task::factory()
             ->create([
                 'name' => 'Dagen 27-30',
@@ -224,6 +310,42 @@ https://www.youtube.com/watch?v=SqTdHCTWqks',
             'end_date' => '23-09-2024',
             'client_id' => Client::where('name', 'Jasper van den Heuij')->first()->id,
         ]);
+
+        $this->useImage(
+            'bestelling_1.png',
+            Project::class,
+            5
+        );
+        $this->useImage(
+            'bestelling_2.png',
+            Project::class,
+            5
+        );
+        $this->useImage(
+            'bestelling_3.png',
+            Project::class,
+            5
+        );
+        $this->useImage(
+            'bestelling_4.png',
+            Project::class,
+            5
+        );
+        $this->useImage(
+            'bestelling_5.png',
+            Project::class,
+            5
+        );
+        $this->useImage(
+            'bestelling_6.png',
+            Project::class,
+            5
+        );
+        $this->useImage(
+            'bestelling_7.png',
+            Project::class,
+            5
+        );
 
         Task::factory()
             ->create([
@@ -263,6 +385,37 @@ of een makkelijke overview van wat er in je database staat.',
             'client_id' => Client::where('name', 'Jasper van den Heuij')->first()->id,
         ]);
 
+        $this->useImage(
+            'filament_1.png',
+            Project::class,
+            6
+        );
+        $this->useImage(
+            'filament_2.png',
+            Project::class,
+            6
+        );
+        $this->useImage(
+            'filament_3.png',
+            Project::class,
+            6
+        );
+        $this->useImage(
+            'filament_4.png',
+            Project::class,
+            6
+        );
+        $this->useImage(
+            'filament_5.png',
+            Project::class,
+            6
+        );
+        $this->useImage(
+            'filament_6.png',
+            Project::class,
+            6
+        );
+
         Task::factory()
             ->create([
                 'name' => 'Tutorial volgen',
@@ -290,6 +443,13 @@ Ook om handiger te zien waar een item in het spel ligt.',
             'end_date' => '27-09-2024',
             'client_id' => Client::where('name', 'Jasper van den Heuij')->first()->id,
         ]);
+
+        $this->useImage(
+            'spoiler_1.png',
+            Project::class,
+            7
+        );
+
         Task::factory()
             ->create([
                 'name' => 'JSON lezen',
@@ -336,6 +496,68 @@ Ook om handiger te zien waar een item in het spel ligt.',
             'end_date' => '23-10-2024',
             'client_id' => Client::where('name', 'Jasper van den Heuij')->first()->id,
         ]);
+
+        $this->useImage(
+            'portfolio_1.png',
+            Project::class,
+            8
+        );
+        $this->useImage(
+            'portfolio_2.png',
+            Project::class,
+            8
+        );
+        $this->useImage(
+            'portfolio_3.png',
+            Project::class,
+            8
+        );
+        $this->useImage(
+            'portfolio_4.png',
+            Project::class,
+            8
+        );
+        $this->useImage(
+            'portfolio_5.png',
+            Project::class,
+            8
+        );
+        $this->useImage(
+            'portfolio_6.png',
+            Project::class,
+            8
+        );
+        $this->useImage(
+            'portfolio_7.png',
+            Project::class,
+            8
+        );
+        $this->useImage(
+            'portfolio_8.png',
+            Project::class,
+            8
+        );
+        $this->useImage(
+            'portfolio_9.png',
+            Project::class,
+            8
+        );
+        $this->useImage(
+            'portfolio_10.png',
+            Project::class,
+            8
+        );
+        $this->useImage(
+            'portfolio_11.png',
+            Project::class,
+            8
+        );
+        $this->useImage(
+            'portfolio_12.png',
+            Project::class,
+            8
+        );
+
         Task::factory()->create([
             'name' => 'Database',
             'content' => 'De basis inrichten',
@@ -420,6 +642,23 @@ in mijn laravel projecten dat van alles kan doen met kleuren',
             'end_date' => '05-11-2024',
             'client_id' => Client::where('name', 'Jasper van den Heuij')->first()->id,
         ]);
+
+        $this->useImage(
+            'colors_1.png',
+            Project::class,
+            9
+        );
+        $this->useImage(
+            'colors_2.png',
+            Project::class,
+            9
+        );
+        $this->useImage(
+            'colors_3.png',
+            Project::class,
+            9
+        );
+
         Task::factory()->create([
             'name' => 'Static en niet static',
             'content' => 'De benodigde functies statisch laten werken,
@@ -477,6 +716,68 @@ overal gebruikt kan worden (Alleen laravel applicaties)',
             'end_date' => today(), //TODO end date
             'client_id' => Client::where('name', 'Jasper van den Heuij')->first()->id,
         ]);
+
+        $this->useImage(
+            'store_1.png',
+            Project::class,
+            10
+        );
+        $this->useImage(
+            'store_2.png',
+            Project::class,
+            10
+        );
+        $this->useImage(
+            'store_3.png',
+            Project::class,
+            10
+        );
+        $this->useImage(
+            'store_4.png',
+            Project::class,
+            10
+        );
+        $this->useImage(
+            'store_5.png',
+            Project::class,
+            10
+        );
+        $this->useImage(
+            'store_6.png',
+            Project::class,
+            10
+        );
+        $this->useImage(
+            'store_7.png',
+            Project::class,
+            10
+        );
+        $this->useImage(
+            'store_8.png',
+            Project::class,
+            10
+        );
+        $this->useImage(
+            'store_9.png',
+            Project::class,
+            10
+        );
+        $this->useImage(
+            'store_10.png',
+            Project::class,
+            10
+        );
+        $this->useImage(
+            'store_11.png',
+            Project::class,
+            10
+        );
+        $this->useImage(
+            'store_12.png',
+            Project::class,
+            10
+        );
+
         Task::factory()->create([
             'name' => 'Basis database',
             'content' => 'In dbDesigner de database uitplannen.',
@@ -557,8 +858,22 @@ profiel aanpassen.',
             'status' => TaskStatus::NOT_STARTED, //TODO customer/user
             'project_id' => 10,
         ]);
-
-        //TODO HUGE preloaded images
         //TODO enable other seeder
+    }
+
+
+    protected function useImage(string $image_name, string $imageable_type, int $imageable_id)
+    {
+        $path = $image_name;
+        $imagePath = public_path('images/' . $path);
+
+        Storage::disk('public')
+            ->put($path, file_get_contents($imagePath));
+
+        Image::create([
+            'path' => $path,
+            'imageable_type' => $imageable_type,
+            'imageable_id' => $imageable_id,
+        ]);
     }
 }

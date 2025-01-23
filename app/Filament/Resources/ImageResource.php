@@ -25,6 +25,8 @@ class ImageResource extends Resource
             ->schema([
                 Forms\Components\FileUpload::make('path')
                     ->image()
+                    ->columnSpanFull()
+                    // ->multiple()
                     ->required(),
             ]);
     }

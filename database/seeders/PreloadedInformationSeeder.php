@@ -855,7 +855,7 @@ profiel aanpassen.',
         Task::factory()->create([
             'name' => 'Klanten en gebruikers samenvoegen',
             'content' => 'Als je een gebruiker bent ben je nog niet een user',
-            'status' => TaskStatus::NOT_STARTED, //TODO customer/user
+            'status' => TaskStatus::DONE,
             'project_id' => 10,
         ]);
         //TODO enable other seeder

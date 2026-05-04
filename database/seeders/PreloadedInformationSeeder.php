@@ -1066,6 +1066,64 @@ Ook is hiervan een overzicht waar je ook de laatste status kan inzien',
             'project_id' => 11,
         ]);
 
+        Project::factory()->create([
+            'id' => 12,
+            'name' => 'Tickets',
+            'content' => 'Een ticket systeem maken en integregen in het huidige systeem',
+            'type' => ProjectType::STAGE,
+            'start_date' => '13-04-2026',
+            'end_date' => today()->format('d-m-Y'), //TODO end date
+            'client_id' => Client::where('name', 'Wout ICT')->first()->id,
+        ]);
+
+        $this->useImage(
+            'tickets_1.png',
+            Project::class,
+            12
+        );
+        $this->useImage(
+            'tickets_2.png',
+            Project::class,
+            12
+        );
+        $this->useImage(
+            'tickets_3.png',
+            Project::class,
+            12
+        );
+        $this->useImage(
+            'tickets_4.png',
+            Project::class,
+            12
+        );
+        $this->useImage(
+            'tickets_5.png',
+            Project::class,
+            12
+        );
+
+        Task::factory()->create([
+            'name' => 'Formulier maken',
+            'content' => 'Ticket formulier maken.
+Eerst klant selecteren en daarna ticket informatie invullen.',
+            'status' => TaskStatus::DONE,
+            'project_id' => 12,
+        ]);
+        Task::factory()->create([
+            'name' => 'Overzicht maken',
+            'content' => 'Overzicht maken van alle tickets.
+Standaard gefilterd op jouw tickets.',
+            'status' => TaskStatus::DONE,
+            'project_id' => 12,
+        ]);
+        Task::factory()->create([
+            'name' => 'Mail maken',
+            'content' => 'Tickets worden naar het juiste mailadres verzonden.
+Hierin staat alle ingevulde informatie, zodat iedereen deze ticket kan oppakken en zien wat er aan de hand is.',
+            'status' => TaskStatus::DONE,
+            'project_id' => 12,
+        ]);
+
         //TODO enable other seeder
     }
 

@@ -15,7 +15,7 @@
                     <div class="items-center rounded-lg shadow bg-gray-50 sm:flex dark:bg-gray-800 dark:border-gray-700">
                         <div>
                             @if ($client->firstImage())
-                                <img class="max-w-[250px] max-h-[250px] rounded-lg sm:rounded-none sm:rounded-l-lg"
+                                <img class="max-w-[230px] max-h-[250px] rounded-lg sm:rounded-none sm:rounded-l-lg"
                                     src="{{ asset('storage/' . $client->firstImage()->path) }}"
                                     alt="$client->firstImage() here" />
                             @endif

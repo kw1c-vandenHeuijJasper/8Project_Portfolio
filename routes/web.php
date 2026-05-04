@@ -24,8 +24,6 @@ Route::get('/', function (): View {
     ]);
 })->name('/');
 
-//FIXME!! cant upload images !!
-
 Route::get('/projects', [ProjectController::class, 'index'])->name('projects');
 Route::get('/projects/{project}', [ProjectController::class, 'show'])->name('projects.show');
 

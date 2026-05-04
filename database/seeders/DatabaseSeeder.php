@@ -17,10 +17,12 @@ class DatabaseSeeder extends Seeder
             PreloadedInformationSeeder::class,
         ]);
 
-        // if (App::isLocal()) {
-        //     $this->call([
-        //         FakeDataSeeder::class
-        //     ]);
-        // }
+        if (App::isLocal()) {
+            /*
+            $this->call([
+                FakeDataSeeder::class
+            ]);
+            */
+        }
     }
 }

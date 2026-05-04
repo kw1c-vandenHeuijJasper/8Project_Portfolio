@@ -2,14 +2,14 @@
 
 namespace Database\Seeders;
 
-use App\Models\Task;
-use App\Models\User;
-use App\Models\Image;
+use App\Enums\ProjectType;
+use App\Enums\TaskStatus;
 use App\Models\Client;
+use App\Models\Image;
 use App\Models\Project;
 use App\Models\Quality;
-use App\Enums\TaskStatus;
-use App\Enums\ProjectType;
+use App\Models\Task;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Storage;
 
@@ -33,7 +33,7 @@ class PreloadedInformationSeeder extends Seeder
         ]);
         Quality::factory()->create([
             'name' => 'Tailwind',
-            'percentage' => 85,
+            'percentage' => 90,
         ]);
         Quality::factory()->create([
             'name' => 'JS',
@@ -41,19 +41,23 @@ class PreloadedInformationSeeder extends Seeder
         ]);
         Quality::factory()->create([
             'name' => 'PHP',
-            'percentage' => 80,
+            'percentage' => 85,
         ]);
         Quality::factory()->create([
             'name' => 'SQL',
-            'percentage' => 60,
+            'percentage' => 75,
         ]);
         Quality::factory()->create([
             'name' => 'Laravel',
-            'percentage' => 80,
+            'percentage' => 90,
         ]);
         Quality::factory()->create([
             'name' => 'Filament',
-            'percentage' => 70,
+            'percentage' => 90,
+        ]);
+        Quality::factory()->create([
+            'name' => 'Livewire',
+            'percentage' => 50,
         ]);
 
         /**
@@ -72,6 +76,12 @@ class PreloadedInformationSeeder extends Seeder
             'name' => 'Jasper van den Heuij',
             'description' => 'Maker van de website',
             'color' => 'rgb(50, 150, 250)',
+        ]);
+
+        Client::factory()->create([
+            'name' => 'Wout ICT',
+            'description' => 'Opdrachtgever',
+            'color' => 'rgb(250, 150, 50)',
         ]);
 
         /**
@@ -713,7 +723,7 @@ overal gebruikt kan worden (Alleen laravel applicaties)',
             'content' => 'Een winkel systeem met 2 kanten, Admin en Customer.',
             'type' => ProjectType::STAGE,
             'start_date' => '05-11-2024',
-            'end_date' => today(), //TODO end date
+            'end_date' => '31-01-2025',
             'client_id' => Client::where('name', 'Jasper van den Heuij')->first()->id,
         ]);
 
@@ -858,14 +868,199 @@ profiel aanpassen.',
             'status' => TaskStatus::DONE,
             'project_id' => 10,
         ]);
+
+        // Project 11
+        Project::factory()->create([
+            'id' => 11,
+            'name' => 'DNS',
+            'content' => 'Een systeem om domeinnamen in te kijken vanaf een API.
+Je hebt geschiedenissen, .zone bestanden, aanpasbaar dashboard. dns lookup en zelf een domeinnaam registreer systeem.
+Alles om domein/dns gegevens te lezen en checken, doen we hier.',
+            'type' => ProjectType::STAGE,
+            'start_date' => '27-01-2026',
+            'end_date' => today()->format('d-m-Y'), //TODO end date
+            'client_id' => Client::where('name', 'Wout ICT')->first()->id,
+        ]);
+
+        $this->useImage(
+            'DNS_1.png',
+            Project::class,
+            11
+        );
+        $this->useImage(
+            'DNS_2.png',
+            Project::class,
+            11
+        );
+        $this->useImage(
+            'DNS_3.png',
+            Project::class,
+            11
+        );
+        $this->useImage(
+            'DNS_4.png',
+            Project::class,
+            11
+        );
+        $this->useImage(
+            'DNS_5.png',
+            Project::class,
+            11
+        );
+        $this->useImage(
+            'DNS_6.png',
+            Project::class,
+            11
+        );
+        $this->useImage(
+            'DNS_7.png',
+            Project::class,
+            11
+        );
+        $this->useImage(
+            'DNS_8.png',
+            Project::class,
+            11
+        );
+        $this->useImage(
+            'DNS_9.png',
+            Project::class,
+            11
+        );
+        $this->useImage(
+            'DNS_10.png',
+            Project::class,
+            11
+        );
+        $this->useImage(
+            'DNS_11.png',
+            Project::class,
+            11
+        );
+
+        Task::factory()->create([
+            'name' => 'Basis API koppeling naar MijnHost leggen',
+            'content' => 'API koppeling leggen naar MijnHost.
+Deze kan: Domeinen uitlezen, DNS gegevens ophalen, beschikbaarheid van een domein checken en een domein registreren.
+Deze worden allemaal automatisch per uur opnieuw opgehaald en in de database gezet',
+            'status' => TaskStatus::DONE,
+            'project_id' => 11,
+        ]);
+
+        Task::factory()->create([
+            'name' => 'Basis API koppeling naar SIDN leggen',
+            'content' => 'API koppeling leggen naar SIDN.
+Deze kan de beschikbaarheid van een domein checken en WhoIs gegevens ophalen.',
+            'status' => TaskStatus::DONE,
+            'project_id' => 11,
+        ]);
+
+        Task::factory()->create([
+            'name' => 'Basis API koppeling naar SIDN leggen',
+            'content' => 'API koppeling leggen naar SIDN.
+Deze kan de beschikbaarheid van een domein checken en WhoIs gegevens ophalen.',
+            'status' => TaskStatus::DONE,
+            'project_id' => 11,
+        ]);
+
+        Task::factory()->create([
+            'name' => 'Online checks',
+            'content' => 'Checkt iedere 5 minuten van alle domeinnamen die wij hosten of ze online zijn of in onderhoud.',
+            'status' => TaskStatus::DONE,
+            'project_id' => 11,
+        ]);
+
+        Task::factory()->create([
+            'name' => 'Verborgen domeinen',
+            'content' => 'Je kan domeinen globaal verbergen van het dashboard, met reden en tijd wanneer deze weer zichtbaar is.',
+            'status' => TaskStatus::DONE,
+            'project_id' => 11,
+        ]);
+
+        Task::factory()->create([
+            'name' => 'Dashboardoverzicht maken',
+            'content' => 'Widgets en tabellen over de meest recente online checks',
+            'status' => TaskStatus::DONE,
+            'project_id' => 11,
+        ]);
+
+        Task::factory()->create([
+            'name' => 'Dashboardoverzicht aanpasbaar maken',
+            'content' => 'Dashboardoverzicht is aanpasbaar per gebruiker.
+Echt alles kun je aan/uit zetten en zelf configureren.',
+            'status' => TaskStatus::DONE,
+            'project_id' => 11,
+        ]);
+
+        Task::factory()->create([
+            'name' => 'Zone bestanden maken',
+            'content' => '.zone bestanden maken op basis van databasegegevens
+Maakt ieder uur een nieuwe correcte .zone file aan met de DNS gegevens van de database.
+Ook zijn er meerdere plaatsen waar je een ander soort gegenereerde .zone file kan weergeven.',
+            'status' => TaskStatus::DONE,
+            'project_id' => 11,
+        ]);
+
+        Task::factory()->create([
+            'name' => 'Geschiedenis maken',
+            'content' => 'Er is een geschiedenis die iedere keer word aangemaakt zodra er iets is aangepast.
+Ook kun je altijd de vorige versie en de veranderingen inzien.',
+            'status' => TaskStatus::DONE,
+            'project_id' => 11,
+        ]);
+
+        Task::factory()->create([
+            'name' => 'DNS checks',
+            'content' => 'Ieder uur worden alle DNS records gecheckt of deze kloppen en nog werken.
+Deze worden opgeslagen in de database en na een week verwijderd.
+Deze staan op een centrale plaats waar je alle DNS records kan zien die in de afgelopen week meer als 3x gefaald zijn.
+Ook word hiervan altijd een geschiedenis bijgehouden.
+Dit is zodat je weet waar en wanneer fouten ontstaan.',
+            'status' => TaskStatus::DONE,
+            'project_id' => 11,
+        ]);
+
+        Task::factory()->create([
+            'name' => 'DNS Lookup',
+            'content' => 'Je kan van externe websites alle DNS gegevens ophalen, zelfs die niet standaard zichtbaar zijn.
+Waar de lookup op zoekt is aanpasbaar. Wij hebben hierdoor meer gegevens dan we met een openbare tool kunnen ophalen.
+Ook is dit handig als wij een klant naar ons willen overzetten, dan kunnen wij deze meteen importeren.',
+            'status' => TaskStatus::DONE,
+            'project_id' => 11,
+        ]);
+
+        Task::factory()->create([
+            'name' => 'Domein beschikbaarheid',
+            'content' => 'Je kan de beschikbaarheid van een domein checken via MijnHost en SIDN
+Ook zie je gelijk de WhoIs gegevens en wanneer een domeinnaam afloopt, en dat je hem ook gelijk kan reserveren',
+            'status' => TaskStatus::DONE,
+            'project_id' => 11,
+        ]);
+
+        Task::factory()->create([
+            'name' => 'Domein reserveren',
+            'content' => 'Je kan een domeinnaam direct reserveren.
+Ook kun je een domeinnaam reserveren zodra hij beschikbaar is, zodat wij deze als aller eerste kunnen pakken.
+Als er geen datum/tijd is opgegeven controleren we ieder uur of we deze kunnen pakken.
+Ook is hiervan een overzicht waar je ook de laatste status kan inzien',
+            'status' => TaskStatus::DONE,
+            'project_id' => 11,
+        ]);
+
+        Task::factory()->create([
+            'name' => 'Online hosten',
+            'content' => 'Deze website is ook via Laravel Forge online gehost.',
+            'status' => TaskStatus::DONE,
+            'project_id' => 11,
+        ]);
+
         //TODO enable other seeder
     }
-
 
     protected function useImage(string $image_name, string $imageable_type, int $imageable_id)
     {
         $path = $image_name;
-        $imagePath = public_path('images/' . $path);
+        $imagePath = public_path('images/'.$path);
 
         Storage::disk('public')
             ->put($path, file_get_contents($imagePath));

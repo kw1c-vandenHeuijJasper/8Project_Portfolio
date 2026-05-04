@@ -1123,8 +1123,6 @@ Hierin staat alle ingevulde informatie, zodat iedereen deze ticket kan oppakken 
             'status' => TaskStatus::DONE,
             'project_id' => 12,
         ]);
-
-        //TODO enable other seeder
     }
 
     protected function useImage(string $image_name, string $imageable_type, int $imageable_id)

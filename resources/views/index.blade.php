@@ -129,7 +129,7 @@
 
                     </div>
                     <h3 class="mb-2 text-xl font-bold dark:text-white">Stage WoutICT</h3>
-                    <p class="text-sm text-gray-500 dark:text-gray-400">Januari 2026 - Juni 2026</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">Januari 2026 - heden</p>
                     <p class="text-gray-500 dark:text-gray-400">Wanroij</p>
                 </div>
                 <div class="px-8 border border-x-gray-800 border-y-gray-900">

@@ -46,10 +46,11 @@
                     <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Contact</h2>
                     <ul class="text-gray-600 dark:text-gray-400">
                         <li class="mb-4">
-                            <a class="text-blue-500 hover:underline">jasperictwebsite@gmail.com</a>
+                            <a href="mailto:jasperictwebsite@gmail.com"
+                                class="text-blue-500 hover:underline">jasperictwebsite@gmail.com</a>
                         </li>
                         <li>
-                            <a class="hover:underline">+31 6 29546037</a>
+                            <a href="tel:31629546037" class="hover:underline">+31 6 29546037</a>
                         </li>
                     </ul>
                 </div>
@@ -59,11 +60,11 @@
         <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
 
         <div class="sm:flex sm:items-center sm:justify-between">
-            <span class="text-sm text-gray-500 hover:underline sm:text-center dark:text-gray-400">
-                2024
-                <a class="pl-8" href="#">
+            <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">
+                2026
+                <span class="pl-8">
                     Jasper van den Heuij
-                </a>
+                </span>
             </span>
         </div>
 </footer>

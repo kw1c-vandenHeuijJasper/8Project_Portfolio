@@ -84,6 +84,18 @@ class PreloadedInformationSeeder extends Seeder
             'color' => 'rgb(250, 150, 50)',
         ]);
 
+        $this->useImage(
+            'WoutICT-building.jpg',
+            Client::class,
+            2
+        );
+
+        $this->useImage(
+            'WoutICT-logo.png',
+            Client::class,
+            2
+        );
+
         /**
          * Projects
          */

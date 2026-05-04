@@ -9,7 +9,7 @@
                     Hallo, <br> <span class="text-3xl font-bold">Ik ben Jasper van den Heuij.</span>
                 </h1>
                 <p class="max-w-2xl mb-6 font-normal text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
-                    Student Software Development - Leerjaar 2
+                    Student Software Development - Leerjaar 3
                 </p>
             </div>
             <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
@@ -26,16 +26,16 @@
         </h2>
         <p class="mt-4 text-base font-normal text-gray-500 sm:text-xl dark:text-gray-400">
             Hoi, ik ben Jasper van den Heuij en ik studeer Software Development op het Koning Willem 1
-            College in Cuijk en zit nu in leerjaar 2.
-            Ik ben 17 jaar oud en ben zeer geintereseerd in de <span class="font-bold">software</span> wereld.
-            Ik vind <span class="font-bold">hardware</span> ook enorm interessant en heb al een aantal computers
-            gebouwd. <br>
+            College in Cuijk en zit nu in leerjaar 3.
+            Ik ben 19 jaar oud en ben zeer geintereseerd in de <span class="font-bold">software</span> wereld.
+            Ik vind <span class="font-bold">hardware</span> ook heel interessant. <br />
             In de software is de <span class="font-bold">backend</span> mijn interesse.
             <br><br>
             Deze website is gemaakt in <span class="font-bold">Laravel</span>, <span
                 class="font-bold">FilamentPHP</span> en <span class="font-bold">TailwindCSS</span>. <br>
             Wil je meer over mij of mijn website weten? Stuur mij gerust een mailtje naar
-            <span class="text-blue-500 hover:cursor-pointer hover:underline">jasperictwebsite@gmail.com</span> !
+            <a href="mailto:jasperictwebsite@gmail.com"
+                class="text-blue-500 hover:cursor-pointer hover:underline">jasperictwebsite@gmail.com</a> !
         </p>
     </div>
 
@@ -129,7 +129,7 @@
 
                     </div>
                     <h3 class="mb-2 text-xl font-bold dark:text-white">Stage WoutICT</h3>
-                    <p class="text-sm text-gray-500 dark:text-gray-400">September 2024 - Februari 2025</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">Januari 2026 - Juni 2026</p>
                     <p class="text-gray-500 dark:text-gray-400">Wanroij</p>
                 </div>
                 <div class="px-8 border border-x-gray-800 border-y-gray-900">
@@ -143,27 +143,26 @@
                         </svg>
 
                     </div>
-                    <h3 class="mb-2 text-xl font-bold dark:text-white">Albert Heijn/Jan Linders</h3>
+                    <h3 class="mb-2 text-xl font-bold dark:text-white">Supermarkten</h3>
                     <p class="text-sm text-gray-500 dark:text-gray-400">Juni 2023 - heden</p>
-                    <p class="text-gray-500 dark:text-gray-400">Verkoopmedewerker, Vers, AGF en service -<br>
-                        Wanroij
-                    </p>
+                    <p class="text-gray-500 dark:text-gray-400">Diverse supermarkten</p>
                 </div>
                 <div>
                     <div
                         class="flex items-center justify-center w-10 h-10 mb-4 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="text-primary-600 dark:text-primary-300 lg:w-8"
-                            fill="currentColor" viewBox="-3 0 28 28" stroke-width="0.5" stroke="currentColor"
-                            class="size-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"
+                            stroke-width="0.5" stroke="currentColor"
+                            class="text-primary-600 dark:text-primary-300 size-6 lg:w-10">
                             <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 0 0-10.026 0 1.106 1.106 0 0 0-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
+                                d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" />
                         </svg>
 
                     </div>
-                    <h3 class="mb-2 text-xl font-bold dark:text-white">Stage Autobedrijf Coopmans</h3>
-                    <p class="text-sm text-gray-500 dark:text-gray-400">Mei 2022</p>
-                    <p class="text-gray-500 dark:text-gray-400"> Middelbare school 1 week stage - Ledeacker</p>
+                    <h3 class="mb-2 text-xl font-bold dark:text-white">Stage WoutICT</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">September 2024 - Februari 2025</p>
+                    <p class="text-gray-500 dark:text-gray-400">Wanroij</p>
                 </div>
+
             </div>
         </div>
     </section>

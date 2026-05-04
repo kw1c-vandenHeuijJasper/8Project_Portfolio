@@ -17,7 +17,7 @@
                                     <div class="absolute top-0 left-0 p-2 text-sm text-white numbertext">
                                         {{ $index + 1 }} / {{ $image_count }}</div>
                                     <img src="{{ asset('storage/' . $image->path) }}"
-                                        class="mx-auto resize-none object-contain   min-w-[500px] max-h-[250px] max-w-[968px]">
+                                        class="mx-auto resize-none object-contain min-w-[500px] max-h-[400px] max-w-[1000px]"">
                                     <div
                                         class="absolute bottom-0 w-full text-base text-center text-white bg-black bg-opacity-50">
                                     </div>
